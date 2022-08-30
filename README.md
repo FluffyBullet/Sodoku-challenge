@@ -1,4 +1,4 @@
-# Python's Sodoku Application Game
+# Python's Sudoku Application Game
 
 ### <u>Index</u>
 1. [Introduction](#uintroductionu)
