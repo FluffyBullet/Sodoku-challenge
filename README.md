@@ -9,12 +9,12 @@
 
 ## <u>Introduction</u>
 For practice of and display my understanding of coding language <strong>Python</strong>, this application is created as a submission of my Third project to Code Institute's "Full Stack Developers" course. 
-Based off the puzzle game Sodoku, this app allows the user(s) to test their knowledge and problem solving skills.
+Based off the puzzle game sudoku, this app allows the user(s) to test their knowledge and problem solving skills.
 
 ### <u>Approach</u>
-At first, my view was to create a grid of 3 x 3 blocks, 3 stacked horizontally, 3 stacked vertically. For generating the field, python was to list values 1 - 9, then randomize. Branching vertically too, completing the sodoku puzzle, then hiding blocks from the user.
+At first, my view was to create a grid of 3 x 3 blocks, 3 stacked horizontally, 3 stacked vertically. For generating the field, python was to list values 1 - 9, then randomize. Branching vertically too, completing the sudoku puzzle, then hiding blocks from the user.
 
-A more simpler method and to use another function, I have pre-determined the sodoku puzzles from website mentioned in [acknowledgements](#acknowledgements). Python will pull the intial code from the display text document.<br>
+A more simpler method and to use another function, I have pre-determined the sudoku puzzles from website mentioned in [acknowledgements](#acknowledgements). Python will pull the intial code from the display text document.<br>
 On entry submission, a grid reference will instruct Python which values to compare and update.<br>
 "If" statement can determin whether the game has been completed or not, placing into a continuous loop.
 
@@ -23,7 +23,7 @@ As Python is based on Command Line Interface (CLI), not graphical interface the 
 
 Methods used within the python code include:
 <u>Users Input</u>
-- Before starting the Sodoku game, the user will be prompted to enter their name (for use at the end of the game)
+- Before starting the sudoku game, the user will be prompted to enter their name (for use at the end of the game)
 - Selection of difficulty 
 - Entry of grid reference and their valued guess.
 
@@ -34,18 +34,21 @@ Methods used within the python code include:
     - If Error - advising of incorrect entry, please try again.
 
 <u>Reading of external documents</u>
-- Sodoku puzzle will depend on the user(s) selection, which will direct the program to it's correct path.
+- sudoku puzzle will depend on the user(s) selection, which will direct the program to it's correct path.
     - code with variables inserted
 - *potential* creating of leaderboard for username and time to completion, top 5 for each difficulty.
 
 <u>Updating list of values</u>
-- users correct entries will be added onto the sodoku table using the .update value.
+- users correct entries will be added onto the sudoku table using the .update value.
 
 <u>creating and storing of dictionary</u>
 - *potential* Leaderboard will be stored as a dictionary, using the user(s) name as key and time to completion as value.
     - Value to be wrote on text document
 
 ### Application behaviour
+
+To map the expected use of the application/game, I have created the following charts using [Lucid Charts](#lucid-charts):
+<img src = assets\images\readme_images\sudoku_flowchart.png>
 
 ### <u>Testing</u>
 <table>
@@ -87,5 +90,8 @@ logging of leaderboard
 
 ### <u>Acknowledgements</u>
 
-Sodoku puzzles:
-    - www.123rf.com, mtmmarek (https://www.123rf.com/photo_94232283_sudoku-puzzle-game-with-answers-vector-illustration.html)
+sudoku puzzles:
+    - www.123rf.com, mtmmarek (https://www.123rf.com/photo_94232283_sudoku-puzzle-game-with-answers-vector-illustration.html)<br>
+Flowchart Layout:<br>
+    - Lucid Charts(#lucid-charts): [www.lucid.app](www.lucid.app)<br>
+ 
