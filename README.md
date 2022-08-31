@@ -4,8 +4,9 @@
 1. [Introduction](#uintroductionu)
 2. [Focus](#uuse-of-the-websiteu)
 3. [Development](#udevelopment-progressionu)
-3. [Testing](#utestingu)
-4. [Acknowledgements](#uacknowledgementsu)
+4. [Testing](#utestingu)
+5. [Bugs Encountered](#ubugs-encounteredu)
+5. [Acknowledgements](#uacknowledgementsu)
 
 
 ## <u>Introduction</u>
@@ -94,6 +95,8 @@ timestamps and end result<br>
 logging of leaderboard
 <br>
 <strong><u>Validators</u></strong>
+
+### <u>Bugs Encountered</u>
 
 ### <u>Acknowledgements</u>
 
