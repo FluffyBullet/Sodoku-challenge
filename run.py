@@ -1,3 +1,19 @@
+def start_selection(mode):
+    """
+    request for user to select either rules to play the game, or to star the the game.
+    """
+    try:
+        if mode.lower() == "play":
+            return True
+        elif mode.lower() == "rules":
+            print("rules to be displayed here")
+            return False
+        elif mode.lower() != "play" or "rules":
+            raise KeyError
+    except KeyError:
+        print(f"{mode} entered not recognised, please type either 'play','rules' or 'exit'")
+        return False
+
 def get_difficulty():
     """
     Allows the user to select the difficulty of the game they are starting.
@@ -13,30 +29,15 @@ def get_difficulty():
                 difficulty = "medium"
             elif int(setting) == 3:
                 difficulty = "hard"
-            elif int(setting) != 1 or 2 or 3:
+            elif setting != 1 or 2 or 3:
                 raise AttributeError
             return difficulty
-        except AttributeError as e:
-            print(f"{e} invalid reference, please enter play/rules/exit")
+        except AttributeError:
+            print(f"{setting} is an invalid reference, please enter play/rules/exit")
             return False
-
-
-def start_selection(mode):
-    """
-    request for user to select either rules to play the game, or to star the the game.
-    """
-    try:
-        if mode.lower() == "play":
-            return True
-        elif mode.lower() == "rules":
-            print("rules to be displayed here")
-            return False
-        elif mode.lower() != "play" or "rules":
-            raise KeyError
-    except KeyError:
-        print("Value entered not recognised, please type either 'play','rules' or 'exit'")
-        return False
-
+            
+    print("creating template....")
+    print("Scribbling down the answers...")
 
 def intro():
     """
@@ -58,6 +59,8 @@ def intro():
             break
 
 def run():
+    """
+    Generating order of processes for the game"""
     intro()
     get_difficulty()
 run()
