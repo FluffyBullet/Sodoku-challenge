@@ -6,7 +6,7 @@
 3. [Development](#udevelopment-progressionu)
 4. [Testing](#utestingu)
 5. [Bugs Encountered](#ubugs-encounteredu)
-5. [Acknowledgements](#uacknowledgementsu)
+6. [Acknowledgements](#uacknowledgementsu)
 
 
 ## <u>Introduction</u>
@@ -97,6 +97,7 @@ logging of leaderboard
 <strong><u>Validators</u></strong>
 
 ### <u>Bugs Encountered</u>
+1. When creating the selection of game or rules, the try statement iterates through twice, causing duplication of text displayed. Unable to fix at present, but will store in logs for later date.
 
 ### <u>Acknowledgements</u>
 
