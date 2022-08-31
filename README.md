@@ -3,6 +3,7 @@
 ### <u>Index</u>
 1. [Introduction](#uintroductionu)
 2. [Focus](#uuse-of-the-websiteu)
+3. [Development](#udevelopment-progressionu)
 3. [Testing](#utestingu)
 4. [Acknowledgements](#uacknowledgementsu)
 
@@ -44,6 +45,12 @@ Methods used within the python code include:
 <u>creating and storing of dictionary</u>
 - *potential* Leaderboard will be stored as a dictionary, using the user(s) name as key and time to completion as value.
     - Value to be wrote on text document
+
+### <u>Development progression</u>
+
+<strong>31/8/22</strong><br>
+    At first attempt, the intro section would request for the user to select the mode - the progressing into difficulty setting. Similar to all games and approaches, there needs to be an expectation that the user has not experienced the game/event before.<br>
+    Edited to be included in the flow chart, the intro section now includes option to explain the rules, or start the game.
 
 ### Application behaviour
 
