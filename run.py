@@ -38,7 +38,6 @@ def get_difficulty():
         except AttributeError:
             print(f"{setting} is an invalid reference, please enter play/rules/exit")
             return False
-    return difficulty
 
 def create_puzzle():
     """
@@ -46,9 +45,23 @@ def create_puzzle():
     """
 
     difficulty = get_difficulty()
-    print("creating template....")
+    print("Creating template....")
     print("Scribbling down the answers...")
-    print(f"{difficulty} has been selected")
+    print(f"{difficulty} has been selected\n")
+
+    pull_puzzle = f"sudoku_"+difficulty+"_display"
+    pull_answer = f"sudoku_"+difficulty+"_answer"
+
+    with open(pull_puzzle+".txt") as f:
+        puzzle = f.readlines()
+    print("Your puzzle is as follows:")
+    for line in range(len(puzzle)):
+        print(puzzle[line])
+
+    with open(pull_answer+".txt") as a:
+        answer = a.readlines()
+
+    
 
 def intro():
     """
