@@ -35,6 +35,10 @@ Methods used within the python code include:
     - If False - commiserations and prompting to try again
     - If Error - advising of incorrect entry, please try again.
 
+<u> Validation Checking</u>
+- on users command, their entry will be validated if within an expected result. 
+    - this will feature feedback similar with the above - catching errors.
+
 <u>Reading of external documents</u>
 - sudoku puzzle will depend on the user(s) selection, which will direct the program to it's correct path.
     - code with variables inserted
@@ -52,6 +56,10 @@ Methods used within the python code include:
 <strong>31/8/22</strong><br>
     At first attempt, the intro section would request for the user to select the mode - the progressing into difficulty setting. Similar to all games and approaches, there needs to be an expectation that the user has not experienced the game/event before.<br>
     Edited to be included in the flow chart, the intro section now includes option to explain the rules, or start the game.
+<strong>01/09/22</strong><br>
+    As the display is presented, no guide was presented for the user.<br>
+    To correct this, axis lables were added within the code, but presented difficulty with alignment and blending with the rest of the presentation.<br>
+    Coloring of text allowes me to make the labels to stand out from the display, giving a clear understanding to the user.
 
 ### Application behaviour
 
