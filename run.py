@@ -62,8 +62,6 @@ def create_puzzle():
     with open(pull_answer+".txt") as a:
         answer = a.readlines()
 
-    
-
 def intro():
     """
     Greets the user and starts the Sudoku application
@@ -89,3 +87,19 @@ def run():
     intro()
     create_puzzle()
 run()
+
+#roadmap
+
+# validation function to be added for play/rules, difficulty, grid reference
+# and entry.
+# 
+# main game body - to check if results == answer
+
+# end game loop, if display contains "_", if no - game over.
+
+#implement timestamp at starting of game
+#implement timestamp at end of game
+#including attempted guesses
+#leaderboard to show time and guesses, selectable boards ?
+
+# colouring of input and keywords.
