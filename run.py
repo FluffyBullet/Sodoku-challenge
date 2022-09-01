@@ -11,14 +11,17 @@ def start_selection(mode):
         elif mode.lower() != "play" or "rules":
             raise KeyError
     except KeyError:
-        print(f"{mode} entered not recognised, please type either 'play','rules' or 'exit'")
+        print(f"your entry of '{mode}' is not recognised, please type either 'play','rules' or 'exit'")
         return False
 
 def get_difficulty():
     """
     Allows the user to select the difficulty of the game they are starting.
     """
-    print("Enter your difficulty setting, \n 1 for Easy \n 2 for Medium \n 3 for Hard \n")
+    print(f"Enter your difficulty setting,\n"
+        f"1 for Easy \n"
+        f"2 for Medium \n" 
+        f"3 for Hard \n")
     while True:
         setting = input()
         difficulty = ""
@@ -35,9 +38,17 @@ def get_difficulty():
         except AttributeError:
             print(f"{setting} is an invalid reference, please enter play/rules/exit")
             return False
-            
+    return difficulty
+
+def create_puzzle():
+    """
+    Reads the difficulty setting selected, then creates the grid.
+    """
+
+    difficulty = get_difficulty()
     print("creating template....")
     print("Scribbling down the answers...")
+    print(f"{difficulty} has been selected")
 
 def intro():
     """
@@ -45,22 +56,22 @@ def intro():
     """
     print("Welcome to my Sodoku Challenge application!\n")
     user = input("Enter your name\n")
-    print(f"Thank you {user},\n"
+    print(f"\nThank you {user},\n"
           f"Type 'rules' if you wish for me to explain how to play\n"
           f"Or type 'play' if you wish to start playing")
     
 
     while True:
         mode = input()
-        start_selection(mode)
 
         if start_selection(mode):
-            print("Starting the game now...")
+            print("\nStarting the game now...")
             break
 
 def run():
     """
-    Generating order of processes for the game"""
+    Generating order of processes for the game
+    """
     intro()
-    get_difficulty()
+    create_puzzle()
 run()
