@@ -56,7 +56,7 @@ def intro():
     """
     print("Welcome to my Sodoku Challenge application!\n")
     user = input("Enter your name\n")
-    print(f"\nThank you {user},\n"
+    print(f"\nThank you {user.capitalize()},\n"
           f"Type 'rules' if you wish for me to explain how to play\n"
           f"Or type 'play' if you wish to start playing")
     
