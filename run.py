@@ -55,8 +55,9 @@ def create_puzzle():
     with open(pull_puzzle+".txt") as f:
         puzzle = f.readlines()
     print("Your puzzle is as follows:")
-    for line in range(len(puzzle)):
-        print(puzzle[line])
+    print("\033[1;33;40m  A B C D E F G H I \033[0m ")
+    for line in range(len(puzzle)):    
+        print(f"\033[1;33;40m{line+1}\033[0m "+puzzle[line])
 
     with open(pull_answer+".txt") as a:
         answer = a.readlines()
