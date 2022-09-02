@@ -115,5 +115,6 @@ Flowchart Layout:<br>
     - Lucid Charts(#lucid-charts): [www.lucid.app](www.lucid.app)<br>
 Formatting of Code:<br>
     - wwww.ozzmaker.com, adding color to text of code (https://ozzmaker.com/add-colour-to-text-in-python/)<br>
-Help on formatting of Code:<br>
+    - https://www.pythonchecker.com/, formatting code to readable code.
+Help on creating code:<br>
     - Code Institute learning platform over Python Module with continuous returning.
