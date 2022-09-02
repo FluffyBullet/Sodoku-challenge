@@ -83,7 +83,27 @@ def play_game(pull_puzzle, pull_answer):
     with open(pull_answer + ".txt") as a:
         answer = a.readlines()
 
+    while "_" in pull_answer:
+        grid_entry = input("Your grid ref: \n")
+        answer_entry = input ("your guess: \n")
 
+        print(f"Your entry is {answer_entry} in {grid_entry}")
+        print("Checking if your answer is correct....")
+        
+        validate_entry(possible_answers,int(answer_entry))
+        validate_entry(grid_locations,grid_entry.lower())
+
+def validate_entry(official, entry):
+    """
+    Check if answer is possible entry of required field.
+    """
+    try:
+        if entry in official:
+            return True
+        else:
+            raise KeyError
+    except KeyError as e:
+        print(f"Entry {entry} is not valid, please try again.")
 
 def intro():
     """
@@ -102,6 +122,7 @@ def intro():
         if start_selection(mode):
             print("\nStarting the game now...")
             break
+
 
 def run():
     """
