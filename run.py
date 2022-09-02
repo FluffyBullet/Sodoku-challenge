@@ -65,7 +65,7 @@ def play_game(pull_puzzle, pull_answer):
     Function to hold the body of Sudoku puzzle
     """
 
-    possible_answers = [1,2,3,4,5,6,7,8,9]
+    possible_answers = ['1','2','3','4','5','6','7','8','9']
     grid_locations = []
 
     for x in range(97,106):
@@ -85,12 +85,12 @@ def play_game(pull_puzzle, pull_answer):
 
     while "_" in pull_answer:
         grid_entry = input("Your grid ref: \n")
-        answer_entry = input ("your guess: \n")
+        answer_entry = input("your guess: \n")
 
         print(f"Your entry is {answer_entry} in {grid_entry}")
         print("Checking if your answer is correct....")
-        
-        validate_entry(possible_answers,int(answer_entry))
+
+        validate_entry(possible_answers,answer_entry)
         validate_entry(grid_locations,grid_entry.lower())
 
 def validate_entry(official, entry):
@@ -104,6 +104,9 @@ def validate_entry(official, entry):
             raise KeyError
     except KeyError as e:
         print(f"Entry {entry} is not valid, please try again.")
+    except (ValueError):
+        print(f"Invalid entry of {entry}, please try again.")
+
 
 def intro():
     """
