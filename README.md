@@ -109,8 +109,11 @@ logging of leaderboard
 
 ### <u>Acknowledgements</u>
 
-sudoku puzzles:
+sudoku puzzles:<br>
     - www.123rf.com, mtmmarek (https://www.123rf.com/photo_94232283_sudoku-puzzle-game-with-answers-vector-illustration.html)<br>
 Flowchart Layout:<br>
     - Lucid Charts(#lucid-charts): [www.lucid.app](www.lucid.app)<br>
- 
+Formatting of Code:<br>
+    - wwww.ozzmaker.com, adding color to text of code (https://ozzmaker.com/add-colour-to-text-in-python/)<br>
+Help on formatting of Code:<br>
+    - Code Institute learning platform over Python Module with continuous returning.
