@@ -26,6 +26,7 @@ def get_difficulty():
     "2 for Medium \n" 
     "3 for Hard \n")
     while True:
+        # User entry for difficulty
         setting = input()
         difficulty = ""
         try:
@@ -54,6 +55,7 @@ def create_puzzle():
     print("Scribbling down the answers...")
     print(f"{difficulty} has been selected\n")
 
+    #generating string used for open function.
     pull_puzzle = f"sudoku_" + difficulty + "_display"
     pull_answer = f"sudoku_" + difficulty + "_answer"
 
@@ -68,6 +70,7 @@ def play_game(pull_puzzle, pull_answer):
     possible_answers = ['1','2','3','4','5','6','7','8','9']
     grid_locations = []
 
+    # search for all grid reference options (saves typing)
     for x in range(97,106):
         for y in range(1,10):
             locations = chr(x) + str(y)
@@ -84,14 +87,18 @@ def play_game(pull_puzzle, pull_answer):
         answer = a.readlines()
 
     while "_" in pull_answer:
+        # Requesting user to enter field and guess
         grid_entry = input("Your grid ref: \n")
         answer_entry = input("your guess: \n")
 
         print(f"Your entry is {answer_entry} in {grid_entry}")
         print("Checking if your answer is correct....")
 
+        # Request system to check answers are valid options
         validate_entry(possible_answers,answer_entry)
         validate_entry(grid_locations,grid_entry.lower())
+
+
 
 def validate_entry(official, entry):
     """
