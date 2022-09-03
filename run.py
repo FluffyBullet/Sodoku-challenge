@@ -22,9 +22,9 @@ def get_difficulty():
     Allows the user to select the difficulty of the game they are starting.
     """
     print("Enter your difficulty setting,\n"
-    "1 for Easy \n"
-    "2 for Medium \n" 
-    "3 for Hard \n")
+        "1 for Easy \n"
+        "2 for Medium \n" 
+        "3 for Hard \n")
     while True:
         # User entry for difficulty
         setting = input()
@@ -41,7 +41,7 @@ def get_difficulty():
             return difficulty
         except AttributeError:
             print(f"{setting} is an invalid reference, please enter"
-            f"play/rules/exit")
+            "play/rules/exit")
             return False
 
 
@@ -86,6 +86,9 @@ def play_game(pull_puzzle, pull_answer):
     with open(pull_answer + ".txt") as a:
         answer = a.readlines()
 
+
+
+
     while "_" in pull_answer:
         # Requesting user to enter field and guess
         grid_entry = input("Your grid ref: \n")
@@ -97,6 +100,48 @@ def play_game(pull_puzzle, pull_answer):
         # Request system to check answers are valid options
         validate_entry(possible_answers,answer_entry)
         validate_entry(grid_locations,grid_entry.lower())
+
+        # Check if entry matches answer
+        if test_entry(answer,grid_entry,answer_entry) is True:
+            print("this has worked")
+        else:
+            print("Try again")
+
+def test_entry(answer,grid_entry,answer_entry):
+    """
+    checks if guess v answer is correct.
+    """
+    #To split guess location into single location identifiers
+    grid = list(grid_entry)
+    grid_x = grid[0]
+    grid_y = grid[1]
+
+    if grid_x == 'a':
+        grid_x = 0
+    elif grid_x == 'b':
+        grid_x = 1
+    elif grid_x == 'c':
+        grid_x = 2
+    elif grid_x == 'd':
+        grid_x = 3
+    elif grid_x == 'e':
+        grid_x = 4
+    elif grid_x == 'f':
+        grid_x = 5
+    elif grid_x == 'g':
+        grid_x = 6
+    elif grid_x == 'h':
+        grid_x = 7
+    elif grid_x == 'i':
+        grid_x = 8
+    elif grid_x == 'j':
+        grid_x = 9
+
+    line = answer[grid_x]
+
+    guess_place = 
+
+    print(guess_location)
 
 
 
@@ -157,3 +202,5 @@ run()
 #leaderboard to show time and guesses, selectable boards ?
 
 # colouring of input and keywords.
+
+#add validation to get_setting function
