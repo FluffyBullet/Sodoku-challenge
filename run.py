@@ -91,6 +91,9 @@ def play_game(pull_puzzle, pull_answer):
 
     for i in range(len(answer)):
         answer[i] = answer[i].strip('\n').split(',')
+    #converting display puzzle to number array
+    for i in range(len(puzzle)):
+        puzzle[i] = puzzle[i].strip('\n').split(',')
     
     print(f"Results = {(answer[0][0])}")
 
@@ -107,13 +110,30 @@ def play_game(pull_puzzle, pull_answer):
         validate_entry(possible_answers,answer_entry)
         validate_entry(grid_locations,grid_entry.lower())
 
-        # Check if entry matches answer
-        #if test_entry(answer,grid_entry,answer_entry,puzzle) is True:
-        #    print("this has worked")
-        #else:
-        #    print("Try again")
 
-#def test_entry(answer,grid_entry,answer_entry,puzzle):
+
+        # Check if entry matches answer
+        if test_entry(answer,grid_entry,answer_entry,puzzle) is True:
+            print("this has worked")
+        else:
+            print("Try again")
+
+
+def validate_entry(official, entry):
+    """
+    Check if answer is possible entry of required field.
+    """
+    try:
+        if entry in official:
+            return True
+        else:
+            raise KeyError
+    except KeyError as e:
+        print(f"Entry {entry} is not valid, please try again.")
+    except (ValueError):
+        print(f"Invalid entry of {entry}, please try again.")
+
+def test_entry(answer,grid_entry,answer_entry,puzzle):
     """
     checks if guess v answer is correct.
     """
@@ -121,6 +141,7 @@ def play_game(pull_puzzle, pull_answer):
     grid = list(grid_entry)
     grid_x = grid[0]
     grid_y = grid[1]
+    #guess_location = grid_x[grid_y]
 
     if grid_x == 'a':
         grid_x = 0
@@ -142,32 +163,15 @@ def play_game(pull_puzzle, pull_answer):
         grid_x = 8
     elif grid_x == 'j':
         grid_x = 9
+    
+    
 
-    #converting display puzzle to number array
-    #for i in range(len(puzzle)):
-    #    puzzle[i] = puzzle[i].strip('\n').split(',')
+    print(f"grid_x = {grid_x}")
+    print(f"grid_y = {grid_y}")
 
-    line = answer[grid_x]
-
-    guess_place = ""
-
-    print(guess_place)
-
-
-
-def validate_entry(official, entry):
-    """
-    Check if answer is possible entry of required field.
-    """
-    try:
-        if entry in official:
-            return True
-        else:
-            raise KeyError
-    except KeyError as e:
-        print(f"Entry {entry} is not valid, please try again.")
-    except (ValueError):
-        print(f"Invalid entry of {entry}, please try again.")
+    print(puzzle[grid_x])
+    print(type(puzzle[grid_x]))
+    #'print(f"guess_place = {guess_location}")
 
 
 def intro():
@@ -214,3 +218,6 @@ run()
 # colouring of input and keywords.
 
 #add validation to get_setting function
+
+# LAST ADDED - MAPPING OF GUESS LOCATION IN TEST_ENTRY FIELD
+# TO BE REVIEWED AS NOT DISPLAYING LIST VALUES

@@ -111,7 +111,7 @@ logging of leaderboard
 
 ### <u>Bugs Encountered</u>
 1. When creating the selection of game or rules, the try statement iterates through twice, causing duplication of text displayed. Unable to fix at present, but will store in logs for later date.
-2. After creating check_answers function, validation checks appear to only be valid for a1 entry, with all other entries proceeding.
+2. After creating check_answers function, validation checks appear to only be valid for a1 entry, with all other entries proceeding. - this was due to order of functions which is now corrected - 5/9/22
 
 ### <u>Acknowledgements</u>
 
