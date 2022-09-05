@@ -66,6 +66,9 @@ def play_game(pull_puzzle, pull_answer):
     """
     Function to hold the body of Sudoku puzzle
     """
+    #response to user to show still working
+    print("Your puzzle is as follows:")
+    print("\033[1;33;40m  A B C D E F G H I \033[0m ")
 
     possible_answers = ['1','2','3','4','5','6','7','8','9']
     grid_locations = []
@@ -79,10 +82,10 @@ def play_game(pull_puzzle, pull_answer):
     with open(pull_puzzle + ".txt") as f:
         puzzle = f.readlines()
 
-    print("Your puzzle is as follows:")
-    print("\033[1;33;40m  A B C D E F G H I \033[0m ")
     for line in range(len(puzzle)):
         print(f"\033[1;33;40m{line + 1}\033[0m " + puzzle[line])
+
+
     with open(pull_answer + ".txt") as a:
         answer = a.readlines()
 
@@ -105,12 +108,12 @@ def play_game(pull_puzzle, pull_answer):
         validate_entry(grid_locations,grid_entry.lower())
 
         # Check if entry matches answer
-        if test_entry(answer,grid_entry,answer_entry) is True:
-            print("this has worked")
-        else:
-            print("Try again")
+        #if test_entry(answer,grid_entry,answer_entry,puzzle) is True:
+        #    print("this has worked")
+        #else:
+        #    print("Try again")
 
-def test_entry(answer,grid_entry,answer_entry):
+#def test_entry(answer,grid_entry,answer_entry,puzzle):
     """
     checks if guess v answer is correct.
     """
@@ -140,11 +143,15 @@ def test_entry(answer,grid_entry,answer_entry):
     elif grid_x == 'j':
         grid_x = 9
 
+    #converting display puzzle to number array
+    #for i in range(len(puzzle)):
+    #    puzzle[i] = puzzle[i].strip('\n').split(',')
+
     line = answer[grid_x]
 
     guess_place = ""
 
-    print(guess_location)
+    print(guess_place)
 
 
 

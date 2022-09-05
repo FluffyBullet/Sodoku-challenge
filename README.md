@@ -60,6 +60,11 @@ Methods used within the python code include:
     As the display is presented, no guide was presented for the user.<br>
     To correct this, axis lables were added within the code, but presented difficulty with alignment and blending with the rest of the presentation.<br>
     Coloring of text allowes me to make the labels to stand out from the display, giving a clear understanding to the user.
+<strong>5/09/22</strong><br>
+    Using references to check and update entries and correct results was difficult as initial recall from the text file enters as strong with /n at the end of each array.<br>
+    To correct this, the string needs "\n" removing and splitting after each commar. However, you cannot concatenate a list and a string together causing another issue for display of the puzzle.<br>
+    Combatting this is to use the conversion method in the testing function rather than display. On completion this will be converted back to string then returned for display.<br>
+    In addition, "_" was originally entered to show guesses required but not recognised as an integer. This was displayed as "0" instead - to be updated in rules.
 
 ### Application behaviour
 
@@ -106,6 +111,7 @@ logging of leaderboard
 
 ### <u>Bugs Encountered</u>
 1. When creating the selection of game or rules, the try statement iterates through twice, causing duplication of text displayed. Unable to fix at present, but will store in logs for later date.
+2. After creating check_answers function, validation checks appear to only be valid for a1 entry, with all other entries proceeding.
 
 ### <u>Acknowledgements</u>
 
