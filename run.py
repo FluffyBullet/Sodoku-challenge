@@ -78,15 +78,18 @@ def play_game(pull_puzzle, pull_answer):
 
     with open(pull_puzzle + ".txt") as f:
         puzzle = f.readlines()
+
     print("Your puzzle is as follows:")
     print("\033[1;33;40m  A B C D E F G H I \033[0m ")
-    for line in range(len(puzzle)):    
+    for line in range(len(puzzle)):
         print(f"\033[1;33;40m{line + 1}\033[0m " + puzzle[line])
-
     with open(pull_answer + ".txt") as a:
         answer = a.readlines()
 
-
+    for i in range(len(answer)):
+        answer[i] = answer[i].strip('\n').split(',')
+    
+    print(f"Results = {(answer[0][0])}")
 
 
     while "_" in pull_answer:
@@ -139,7 +142,7 @@ def test_entry(answer,grid_entry,answer_entry):
 
     line = answer[grid_x]
 
-    guess_place = 
+    guess_place = ""
 
     print(guess_location)
 
