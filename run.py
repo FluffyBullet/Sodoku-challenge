@@ -82,7 +82,7 @@ def play_game(pull_puzzle, pull_answer):
         puzzle = f.readlines()
 
     for line in range(len(puzzle)):
-        print(f"\033[1;33;40m{line + 1}\033[0m " + puzzle[line])
+        print(f"\033[1;33;40m{line + 1}\033[0m "+ puzzle[line])
     with open(pull_answer + ".txt") as a:
         answer = a.readlines()
 
