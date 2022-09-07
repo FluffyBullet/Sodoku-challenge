@@ -68,7 +68,7 @@ def play_game(pull_puzzle, pull_answer):
     """
     # Response to user to show still working
     print("Your puzzle is as follows:")
-    print("\033[1;33;40m  A B C D E F G H I \033[0m ")
+
 
     possible_answers = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
     grid_locations = []
@@ -97,7 +97,7 @@ def play_game(pull_puzzle, pull_answer):
     for item in puzzle:
         for _item in item:
             _puzzle.append(_item)
-            
+
     while "0" in _puzzle:
         # Requesting user to enter field and guess
         grid_entry = input("Your grid ref: \n")
