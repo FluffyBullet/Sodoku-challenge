@@ -44,6 +44,7 @@ def get_difficulty():
                   "play/rules/exit")
             return False
 
+
 def create_puzzle():
     """
     Reads the difficulty setting selected, then creates the grid.
@@ -78,13 +79,10 @@ def play_game(pull_puzzle, pull_answer):
             locations = chr(x) + str(y)
             grid_locations.append(locations)
 
-    with open(pull_puzzle + ".txt") as f:
-        puzzle = f.readlines()
-
-    for line in range(len(puzzle)):
-        print(f"\033[1;33;40m{line + 1}\033[0m "+ puzzle[line])
     with open(pull_answer + ".txt") as a:
         answer = a.readlines()
+    with open(pull_puzzle + ".txt") as f:
+        puzzle = f.readlines()
 
     for i in range(len(answer)):
         answer[i] = answer[i].strip('\n').split(',')
@@ -92,8 +90,15 @@ def play_game(pull_puzzle, pull_answer):
     for i in range(len(puzzle)):
         puzzle[i] = puzzle[i].strip('\n').split(',')
 
-    
-    while "_" in pull_answer:
+    for line in range(len(puzzle)):
+        print(str(puzzle[line]))
+
+    _puzzle = []
+    for item in puzzle:
+        for _item in item:
+            _puzzle.append(_item)
+            
+    while "0" in _puzzle:
         # Requesting user to enter field and guess
         grid_entry = input("Your grid ref: \n")
         answer_entry = input("your guess: \n")
@@ -166,8 +171,9 @@ def test_entry(answer, grid_entry, answer_entry, puzzle):
     # print(puzzle[int(grid_y)][int(grid_x)])
     if int(answer[int(grid_y)-1][int(grid_x)]) == int(answer_entry):
         print("Correct")
-        puzzle[int(grid_y)-1][int(grid_x)] = answer_entry
-        print(puzzle[int(grid_y)-1])
+        puzzle[int(grid_y)][int(grid_x)+1] = answer_entry
+        for line in range(len(puzzle)):
+            print(str(puzzle[line]))
         return True
     else:
         return False
