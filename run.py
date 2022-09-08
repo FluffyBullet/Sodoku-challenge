@@ -1,3 +1,9 @@
+from colorama import Fore, Back, Style
+from prettytable import PrettyTable
+
+t = PrettyTable()
+
+
 def start_selection(mode):
     """
     request for user to select either rules to play the game,
@@ -9,7 +15,7 @@ def start_selection(mode):
         elif mode.lower() == "rules":
             print("rules to be displayed here")
             return False
-        elif mode.lower() != "play" or "rules":
+        elif mode.lower() not in ["play", "rules"]:
             raise KeyError
     except KeyError:
         print(f"your entry of '{mode}' is not recognised,"
@@ -27,22 +33,18 @@ def get_difficulty():
           "3 for Hard \n")
     while True:
         # User entry for difficulty
+        possible_answers = ["1", "2", "3"]
         setting = input()
-        difficulty = ""
-        try:
-            if int(setting) == 1:
-                difficulty = "easy"
-            elif int(setting) == 2:
-                difficulty = "medium"
-            elif int(setting) == 3:
-                difficulty = "hard"
-            elif setting != 1 or 2 or 3:
-                raise AttributeError
+        
+        if validate_entry(possible_answers, setting) is True:
+            difficulty = ""
+            if setting == "1":
+                difficulty = "Easy"
+            elif setting == "2":
+                difficulty = "Medium"
+            elif setting == "3":
+                difficulty = "Hard"
             return difficulty
-        except AttributeError:
-            print(f"{setting} is an invalid reference, please enter"
-                  "play/rules/exit")
-            return False
 
 
 def create_puzzle():
@@ -50,7 +52,7 @@ def create_puzzle():
     Reads the difficulty setting selected, then creates the grid.
     """
 
-    difficulty = get_difficulty()
+    difficulty = get_difficulty().lower()
     print("Creating template....")
     print("Scribbling down the answers...")
     print(f"{difficulty} has been selected\n")
@@ -68,7 +70,6 @@ def play_game(pull_puzzle, pull_answer):
     """
     # Response to user to show still working
     print("Your puzzle is as follows:")
-
 
     possible_answers = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
     grid_locations = []
@@ -90,9 +91,14 @@ def play_game(pull_puzzle, pull_answer):
     for i in range(len(puzzle)):
         puzzle[i] = puzzle[i].strip('\n').split(',')
 
+    t.field_names = ["","A","B","C","D","E","F","G","H","I"]
+    
     for line in range(len(puzzle)):
-        print(str(puzzle[line]))
+        t.add_rows([puzzle[line]])
+        #print(str(puzzle[line]))
 
+    t._max_width = {"":2,"C":2,"F":2}
+    print(t)
     _puzzle = []
     for item in puzzle:
         for _item in item:
@@ -185,7 +191,7 @@ def intro():
     """
     Greets the user and starts the Sudoku application
     """
-    print("Welcome to my Sodoku Challenge application!\n")
+    print("\033[1;33m Welcome to my Sodoku Challenge application!\n\033[0;0m")
     user = input("Enter your name\n")
     print(f"\nThank you {user.capitalize()},\n"
           f"Type 'rules' if you wish for me to explain how to play\n"
