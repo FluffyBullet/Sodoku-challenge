@@ -87,7 +87,7 @@ def play_game(pull_puzzle, pull_answer):
     for line in range(len(puzzle)):
         t.add_rows([puzzle[line]])
 
-    t._min_width = {"A":4, "C":4, "F":4}
+    t._min_width = {"A": 4, "C": 4, "F": 4}
     t.align["A"] = "r"
     t.align["C"] = "l"
     t.align["F"] = "l"
@@ -125,6 +125,8 @@ def play_game(pull_puzzle, pull_answer):
             print("this has worked")
         else:
             print("Try again")
+    else:
+        end_game()
 
 
 def validate_entry(official, entry):
@@ -175,12 +177,18 @@ def test_entry(answer, grid_entry, answer_entry, puzzle):
 
     if int(answer[int(grid_y)-1][int(grid_x)]) == int(answer_entry):
         print("Correct")
-        puzzle[int(grid_y)-1][int(grid_x)] = answer_entry
-        print(puzzle)
+        puzzle[int(grid_y)-1][int(grid_x)+1] = answer_entry
+        t.clear_rows()
+        for line in range(len(puzzle)):
+            t.add_rows([puzzle[line]])
+        print(t)    
         return True
     else:
         return False
 
+
+def end_game():
+    pass
 
 
 def intro():
