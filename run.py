@@ -71,15 +71,6 @@ def play_game(pull_puzzle, pull_answer):
     # Response to user to show still working
     print("Your puzzle is as follows:")
 
-    possible_answers = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
-    grid_locations = []
-
-    # search for all grid reference options (saves typing)
-    for x in range(97, 106):
-        for y in range(1, 10):
-            locations = chr(x) + str(y)
-            grid_locations.append(locations)
-
     with open(pull_answer + ".txt") as a:
         answer = a.readlines()
     with open(pull_puzzle + ".txt") as f:
@@ -91,30 +82,43 @@ def play_game(pull_puzzle, pull_answer):
     for i in range(len(puzzle)):
         puzzle[i] = puzzle[i].strip('\n').split(',')
 
-    t.field_names = ["","A","B","C","D","E","F","G","H","I"]
+    t.field_names = ["XY", "A", "B", "C", "D", "E", "F", "G", "H", "I"]
     
     for line in range(len(puzzle)):
         t.add_rows([puzzle[line]])
-        #print(str(puzzle[line]))
 
-    t._max_width = {"":2,"C":2,"F":2}
-    print(t)
+    t._min_width = {"A":4, "C":4, "F":4}
+    t.align["A"] = "r"
+    t.align["C"] = "l"
+    t.align["F"] = "l"
+
     _puzzle = []
     for item in puzzle:
         for _item in item:
             _puzzle.append(_item)
 
+    possible_answers = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+    grid_locations = []
+
+    # search for all grid reference options (saves typing)
+    for x in range(97, 106):
+        for y in range(1, 10):
+            locations = chr(x) + str(y)
+            grid_locations.append(locations)
+
     while "0" in _puzzle:
+        # Displays puzzle to the user
+        print(t)
         # Requesting user to enter field and guess
         grid_entry = input("Your grid ref: \n")
         answer_entry = input("your guess: \n")
 
-        print(f"Your entry is {answer_entry} in {grid_entry}")
-        print("Checking if your answer is correct....")
-
         # Request system to check answers are valid options
         validate_entry(possible_answers, answer_entry)
         validate_entry(grid_locations, grid_entry.lower())
+
+        print(f"Your entry is {answer_entry} in {grid_entry}")
+        print("Checking if your answer is correct....")
 
         # Check if entry matches answer
         if test_entry(answer, grid_entry, answer_entry, puzzle) is True:
@@ -146,7 +150,6 @@ def test_entry(answer, grid_entry, answer_entry, puzzle):
     grid = grid_entry
     grid_x = grid[0].lower()
     grid_y = grid[1]
-    # guess_location = grid_x[grid_y]
 
     # Converts grid a-j ref to numeric value
     if grid_x == 'a':
@@ -170,21 +173,14 @@ def test_entry(answer, grid_entry, answer_entry, puzzle):
     elif grid_x == 'j':
         grid_x = 9
 
-    # print(f"grid_x = {grid_x}")
-    # print(f"grid_y = {grid_y}")
-
-    # print(puzzle[grid_x])
-    # print(puzzle[int(grid_y)][int(grid_x)])
     if int(answer[int(grid_y)-1][int(grid_x)]) == int(answer_entry):
         print("Correct")
-        puzzle[int(grid_y)][int(grid_x)+1] = answer_entry
-        for line in range(len(puzzle)):
-            print(str(puzzle[line]))
+        puzzle[int(grid_y)-1][int(grid_x)] = answer_entry
+        print(puzzle)
         return True
     else:
         return False
 
-    # 'print(f"guess_place = {guess_location}")
 
 
 def intro():
