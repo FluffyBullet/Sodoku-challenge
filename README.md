@@ -67,7 +67,9 @@ Methods used within the python code include:
     In addition, "_" was originally entered to show guesses required but not recognised as an integer. This was displayed as "0" instead - to be updated in rules.<br>
 <strong>09/09/22</strong><br>
     After displaying the puzzle or Sudoku mapping into PrettyTables, correct guesses were not being updated. Looking into this, I found the add rows was being added as a tuple rather than list. With the data being unable to be manipulated I needed to find a way to change the data.<br>
-    I found a function within the PrettyTables library, allowing me to remove previous rows. With this, I can then re-type the data to the rows showing an update.
+    I found a function within the PrettyTables library, allowing me to remove previous rows. With this, I can then re-type the data to the rows showing an update.<br>
+    For demonstration purposes, Test setting has been entered with all but 1 field entered. Difficulty setting == 99. Answer at B1 is 1. 
+
 
 ### Library's used
 
@@ -133,6 +135,12 @@ logging of leaderboard
 ### <u>Bugs Encountered</u>
 1. When creating the selection of game or rules, the try statement iterates through twice, causing duplication of text displayed. Unable to fix at present, but will store in logs for later date.
 2. After creating check_answers function, validation checks appear to only be valid for a1 entry, with all other entries proceeding. - this was due to order of functions which is now corrected - 5/9/22
+3. Validation of grid and guess entry were being skipped, allowing users to enter incorrect reference and breaking the game.
+
+
+This was corrected by wrapping the check answer function within a If statement based on the validation.
+
+The code is displaying as an error with being too long for the window terminal, but as this is only code for background calculations, this is not edited. - 9/9/22
 
 ### <u>Acknowledgements</u>
 

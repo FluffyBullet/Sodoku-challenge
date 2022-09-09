@@ -1,4 +1,4 @@
-from colorama import Fore, Back, Style
+from colorama import Fore, Style
 from prettytable import PrettyTable
 
 t = PrettyTable()
@@ -33,7 +33,7 @@ def get_difficulty():
           "3 for Hard \n")
     while True:
         # User entry for difficulty
-        possible_answers = ["1", "2", "3"]
+        possible_answers = ["1", "2", "3","99"]
         setting = input()
         
         if validate_entry(possible_answers, setting) is True:
@@ -44,6 +44,8 @@ def get_difficulty():
                 difficulty = "Medium"
             elif setting == "3":
                 difficulty = "Hard"
+            elif setting == "99":
+                difficulty = "test"
             return difficulty
 
 
@@ -57,6 +59,7 @@ def create_puzzle():
     print("Scribbling down the answers...")
     print(f"{difficulty} has been selected\n")
 
+
 # Generating string used for open function.
     pull_puzzle = "sudoku_" + difficulty + "_display"
     pull_answer = "sudoku_" + difficulty + "_answer"
@@ -68,6 +71,13 @@ def play_game(pull_puzzle, pull_answer):
     """
     Function to hold the body of Sudoku puzzle
     """
+
+    # Color formatting for text
+    _p_yellow = Fore.YELLOW
+    _p_green = Fore.GREEN
+    _p_red = Fore.RED
+    _p_reset = Style.RESET_ALL
+
     # Response to user to show still working
     print("Your puzzle is as follows:")
 
@@ -82,15 +92,15 @@ def play_game(pull_puzzle, pull_answer):
     for i in range(len(puzzle)):
         puzzle[i] = puzzle[i].strip('\n').split(',')
 
+    # Formatting  for table to display the quiz.
     t.field_names = ["XY", "A", "B", "C", "D", "E", "F", "G", "H", "I"]
-    
-    for line in range(len(puzzle)):
-        t.add_rows([puzzle[line]])
-
     t._min_width = {"A": 4, "C": 4, "F": 4}
     t.align["A"] = "r"
     t.align["C"] = "l"
     t.align["F"] = "l"
+
+    for line in range(len(puzzle)):
+        t.add_rows([puzzle[line]])
 
     _puzzle = []
     for item in puzzle:
@@ -110,23 +120,23 @@ def play_game(pull_puzzle, pull_answer):
         # Displays puzzle to the user
         print(t)
         # Requesting user to enter field and guess
-        grid_entry = input("Your grid ref: \n")
-        answer_entry = input("your guess: \n")
-
-        # Request system to check answers are valid options
-        validate_entry(possible_answers, answer_entry)
-        validate_entry(grid_locations, grid_entry.lower())
+        grid_entry = input(_p_yellow + "Your grid ref: \n" + _p_reset)
+        answer_entry = input(_p_yellow + "your guess: \n" + _p_reset)
 
         print(f"Your entry is {answer_entry} in {grid_entry}")
         print("Checking if your answer is correct....")
 
         # Check if entry matches answer
-        if test_entry(answer, grid_entry, answer_entry, puzzle) is True:
-            print("this has worked")
-        else:
-            print("Try again")
-    else:
-        end_game()
+
+        if validate_entry(possible_answers, answer_entry) is True:
+            if validate_entry(grid_locations, grid_entry.lower()) is True:
+                if test_entry(answer, grid_entry, answer_entry, puzzle) is True:
+                    print(_p_green + "Congrats, you've guessed Correct" + _p_reset)
+                    print("Please enter your next entry:")
+                else:
+                    print(_p_red + "Sorry, that is incorrect." + _p_reset)
+                    print(_p_red + "Please try again" + _p_reset)
+    end_game()
 
 
 def validate_entry(official, entry):
@@ -176,12 +186,11 @@ def test_entry(answer, grid_entry, answer_entry, puzzle):
         grid_x = 9
 
     if int(answer[int(grid_y)-1][int(grid_x)]) == int(answer_entry):
-        print("Correct")
-        puzzle[int(grid_y)-1][int(grid_x)+1] = Fore.GREEN + answer_entry + Style.RESET_ALL
+        answer_entry = Fore.GREEN + answer_entry + Style.RESET_ALL
+        puzzle[int(grid_y)-1][int(grid_x)+1] = answer_entry
         t.clear_rows()
         for line in range(len(puzzle)):
-            t.add_rows([puzzle[line]])
-        print(t)    
+            t.add_rows([puzzle[line]])  
         return True
     else:
         return False
