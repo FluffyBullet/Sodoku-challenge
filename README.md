@@ -60,11 +60,32 @@ Methods used within the python code include:
     As the display is presented, no guide was presented for the user.<br>
     To correct this, axis lables were added within the code, but presented difficulty with alignment and blending with the rest of the presentation.<br>
     Coloring of text allowes me to make the labels to stand out from the display, giving a clear understanding to the user.
-<strong>5/09/22</strong><br>
+<strong>05/09/22</strong><br>
     Using references to check and update entries and correct results was difficult as initial recall from the text file enters as strong with /n at the end of each array.<br>
     To correct this, the string needs "\n" removing and splitting after each commar. However, you cannot concatenate a list and a string together causing another issue for display of the puzzle.<br>
     Combatting this is to use the conversion method in the testing function rather than display. On completion this will be converted back to string then returned for display.<br>
-    In addition, "_" was originally entered to show guesses required but not recognised as an integer. This was displayed as "0" instead - to be updated in rules.
+    In addition, "_" was originally entered to show guesses required but not recognised as an integer. This was displayed as "0" instead - to be updated in rules.<br>
+<strong>09/09/22</strong><br>
+    After displaying the puzzle or Sudoku mapping into PrettyTables, correct guesses were not being updated. Looking into this, I found the add rows was being added as a tuple rather than list. With the data being unable to be manipulated I needed to find a way to change the data.<br>
+    I found a function within the PrettyTables library, allowing me to remove previous rows. With this, I can then re-type the data to the rows showing an update.
+
+### Library's used
+
+**PrettyTable**
+```
+This library allows me to use the list of rows into a presentable format whilst also spacing columns into groups of 3's with alignments.
+
+Unfortunately this is not applicable for rows
+```
+
+**Colorama**
+```
+For the display to the user for headers, entries.
+With each elements being in different colors:
+- Yellow for headers/Questions
+- Green for Correct answers on the Python Display
+- Blue to provide feedback statements
+```
 
 ### Application behaviour
 

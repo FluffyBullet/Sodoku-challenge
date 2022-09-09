@@ -177,7 +177,7 @@ def test_entry(answer, grid_entry, answer_entry, puzzle):
 
     if int(answer[int(grid_y)-1][int(grid_x)]) == int(answer_entry):
         print("Correct")
-        puzzle[int(grid_y)-1][int(grid_x)+1] = answer_entry
+        puzzle[int(grid_y)-1][int(grid_x)+1] = Fore.GREEN + answer_entry + Style.RESET_ALL
         t.clear_rows()
         for line in range(len(puzzle)):
             t.add_rows([puzzle[line]])
@@ -188,7 +188,7 @@ def test_entry(answer, grid_entry, answer_entry, puzzle):
 
 
 def end_game():
-    pass
+    print("Congratulations for completing the game!")
 
 
 def intro():
