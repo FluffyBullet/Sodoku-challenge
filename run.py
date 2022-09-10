@@ -73,9 +73,9 @@ def play_game(pull_puzzle, pull_answer):
     """
 
     # Color formatting for text
-    _p_yellow = Fore.YELLOW
-    _p_green = Fore.GREEN
-    _p_red = Fore.RED
+    _p_y = Fore.YELLOW
+    _p_g = Fore.GREEN
+    _p_r = Fore.RED
     _p_reset = Style.RESET_ALL
 
     # Response to user to show still working
@@ -120,22 +120,22 @@ def play_game(pull_puzzle, pull_answer):
         # Displays puzzle to the user
         print(t)
         # Requesting user to enter field and guess
-        grid_entry = input(_p_yellow + "Your grid ref: \n" + _p_reset)
-        answer_entry = input(_p_yellow + "your guess: \n" + _p_reset)
+        grid_entry = input(_p_y + "Your grid ref: \n" + _p_reset)
+        answer_entry = input(_p_y + "your guess: \n" + _p_reset)
 
         print(f"Your entry is {answer_entry} in {grid_entry}")
         print("Checking if your answer is correct....")
 
-        # Check if entry matches answer
-
+        # Check if entry matches answer            
         if validate_entry(possible_answers, answer_entry) is True:
             if validate_entry(grid_locations, grid_entry.lower()) is True:
                 if test_entry(answer, grid_entry, answer_entry, puzzle) is True:
-                    print(_p_green + "Congrats, you've guessed Correct" + _p_reset)
+                    print(_p_g + "Congrats, you've guessed Correct" + _p_reset)
                     print("Please enter your next entry:")
                 else:
-                    print(_p_red + "Sorry, that is incorrect." + _p_reset)
-                    print(_p_red + "Please try again" + _p_reset)
+                    print(_p_r + "Sorry, that is incorrect." + _p_reset)
+                    print(_p_r + "Please try again" + _p_reset)
+
     end_game()
 
 
@@ -154,10 +154,11 @@ def validate_entry(official, entry):
         print(f"Invalid entry of {entry}, please try again.")
 
 
-def test_entry(answer, grid_entry, answer_entry, puzzle):
+def test_entry(answer, grid_entry, answer_entry, puzzle,):
     """
     checks if guess v answer is correct.
     """
+    _p_reset = Style.RESET_ALL
     # To split guess location into single location identifiers
     grid = grid_entry
     grid_x = grid[0].lower()
@@ -185,12 +186,17 @@ def test_entry(answer, grid_entry, answer_entry, puzzle):
     elif grid_x == 'j':
         grid_x = 9
 
-    if int(answer[int(grid_y)-1][int(grid_x)]) == int(answer_entry):
+    if puzzle[int(grid_y)-1][int(grid_x)+1] != "0":
+        print(Fore.RED + "This field has already been entered" + _p_reset)
+        return False
+    elif int(answer[int(grid_y)-1][int(grid_x)]) == int(answer_entry):
         answer_entry = Fore.GREEN + answer_entry + Style.RESET_ALL
         puzzle[int(grid_y)-1][int(grid_x)+1] = answer_entry
         t.clear_rows()
         for line in range(len(puzzle)):
-            t.add_rows([puzzle[line]])  
+            t.add_rows([puzzle[line]]) 
+
+    # if statement does not update _puzzle, does not update above
         return True
     else:
         return False
@@ -227,22 +233,8 @@ def run():
 
 run()
 
-# roadmap
-
-# validation function to be added for play/rules, difficulty, grid reference
-# and entry.
-# main game body - to check if results == answer
-
-# end game loop, if display contains "_", if no - game over.
 
 # implement timestamp at starting of game
 # implement timestamp at end of game
 # including attempted guesses
 # leaderboard to show time and guesses, selectable boards ?
-
-# colouring of input and keywords.
-
-# add validation to get_setting function
-
-# LAST ADDED - MAPPING OF GUESS LOCATION IN TEST_ENTRY FIELD
-# TO BE REVIEWED AS NOT DISPLAYING LIST VALUES

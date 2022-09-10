@@ -135,11 +135,8 @@ logging of leaderboard
 ### <u>Bugs Encountered</u>
 1. When creating the selection of game or rules, the try statement iterates through twice, causing duplication of text displayed. Unable to fix at present, but will store in logs for later date.
 2. After creating check_answers function, validation checks appear to only be valid for a1 entry, with all other entries proceeding. - this was due to order of functions which is now corrected - 5/9/22
-3. Validation of grid and guess entry were being skipped, allowing users to enter incorrect reference and breaking the game.
-
-
-This was corrected by wrapping the check answer function within a If statement based on the validation.
-
+3. Validation of grid and guess entry were being skipped, allowing users to enter incorrect reference and breaking the game.<br>
+This was corrected by wrapping the check answer function within a If statement based on the validation.<br>
 The code is displaying as an error with being too long for the window terminal, but as this is only code for background calculations, this is not edited. - 9/9/22
 
 ### <u>Acknowledgements</u>
@@ -150,6 +147,23 @@ Flowchart Layout:<br>
     - Lucid Charts(#lucid-charts): [www.lucid.app](www.lucid.app)<br>
 Formatting of Code:<br>
     - wwww.ozzmaker.com, adding color to text of code (https://ozzmaker.com/add-colour-to-text-in-python/)<br>
-    - https://www.pythonchecker.com/, formatting code to readable code.
+    - https://www.pythonchecker.com/, formatting code to readable code.<br>
+    - PyPi<br>
+        - Information on PrettyTable and how to format correctly - https://pypi.org/project/prettytable/<br>
+        - Display of formatting for Colorama - https://pypi.org/project/colorama/<br>
 Help on creating code:<br>
     - Code Institute learning platform over Python Module with continuous returning.
+
+Influencers - <br>
+    - Brother, Jason Reynolds<br>
+    ```
+    Continuous conversation with mentions on flow of code and expected behaviour.
+    ```<br>
+    - Mentor - Marcel Mulders<br>
+    ```
+    Guidance on functions being created, internal variables and possitive support throughout the course.
+    ```<br>
+    - ClassMate - Jamie King<br>
+    ```
+    Comparison of projects, understanding and general conversation. With this, I was able to reflect on my project and adapt some lines to other examples available and change for requirements.
+    ```
