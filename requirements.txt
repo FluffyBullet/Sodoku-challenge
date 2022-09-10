@@ -1,2 +1,2 @@
 # Your requirements go here
-colorama
+colorama==0.4.4
