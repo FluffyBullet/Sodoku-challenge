@@ -149,7 +149,9 @@ def play_game(pull_puzzle, pull_ans):
             for _item in item:
                 _puzzle.append(_item)
     # Displays puzzle to the user
-        print(t)
+        print(t.get_string(start=0, end=3))
+        print(t.get_string(start=3, end=6, header=False))
+        print(t.get_string(start=6, end=10, header=False))
     # Requesting user to enter field and guess
         grid_entry = input(_p_y + "Your grid ref: \n" + _p_reset)
         ans_entry = input(_p_y + "your guess: \n" + _p_reset)
