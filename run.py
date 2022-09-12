@@ -272,7 +272,14 @@ def intro():
     """
     print("\033[1;33m Welcome to my Sodoku Challenge application!\n\033[0;0m")
     global user
-    user = input("Enter your name\n")
+    user = input("Enter your name\n").capitalize()
+
+    while user.isalpha() != True:
+        print("Incorrect entry, please enter your name:")
+        user = input("Enter your name\n").capitalize()
+    else:
+        pass
+    
     print(f"\nThank you {user.capitalize()},\n"
           f"Type 'rules' if you wish for me to explain how to play\n"
           f"Or type 'play' if you wish to start playing")
