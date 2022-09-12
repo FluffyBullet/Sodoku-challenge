@@ -9,6 +9,9 @@
 6. [Acknowledgements](#uacknowledgementsu)
 
 
+Link to live website: [Here](https://sudoku-game-play.herokuapp.com/)
+Link to respository Site: [Here](https://github.com/FluffyBullet/Sodoku-challenge)
+
 ## <u>Introduction</u>
 For practice of and display my understanding of coding language <strong>Python</strong>, this application is created as a submission of my Third project to Code Institute's "Full Stack Developers" course. 
 Based off the puzzle game sudoku, this app allows the user(s) to test their knowledge and problem solving skills.
@@ -113,6 +116,8 @@ I used this method as updating "_puzzle" variable was not working correctly but 
 This library allows me to use the list of rows into a presentable format whilst also spacing columns into groups of 3's with alignments.
 
 Unfortunately this is not applicable for rows
+
+Whilst this was introduced for display of the puzzle, I found this also benefited the use of presenting a leaderboard. Rather than creating an API and connecting to google datasheets, this could be presented in PrettyTable, also using Sort and only priting specific rows.
 ```
 
 **Colorama**

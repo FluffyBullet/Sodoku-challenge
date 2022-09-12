@@ -26,6 +26,9 @@ def start_selection(mode):
             print("to proceed, type 'play'\n")
 
             return False
+        elif mode.lower() == "leaderboard":
+            print(lb)
+
         elif mode.lower() not in ["play", "rules"]:
             raise KeyError
     except KeyError:
@@ -249,7 +252,7 @@ def end_game(guesses, s_time):
     t_time = int(f_time) - int(s_time)
 
     # Update leaderboard with entry
-    lboard = open("leaderboard.txt","a")
+    lboard = open("leaderboard.txt", "a")
     lboard.write(f'"{user}","{difficulty}","{guesses}","{t_time}"\n')
     lboard.close()
 
@@ -285,11 +288,18 @@ def leader_boards():
     """
     Generates leaderboard to display to the user
     """
-    lb.fieldname = ["name", "difficulty", "Guesses","Time(seconds)"]
+    lb.field_names = ["name", "difficulty", "Guesses", "Time(seconds)"]
     print(user.capitalize())
-    print(difficulty)
-    print(guesses)
-    print(t_time)
+
+    with open('leaderboard.txt') as rec:
+        leaders = rec.readlines()
+
+    for i in range(len(leaders)):
+        leaders[i] = leaders[i].strip("\n").split(",")
+    for line in range(len(leaders)):
+        lb.add_rows([leaders[line]])
+
+    print(lb)
 
 
 def run():
