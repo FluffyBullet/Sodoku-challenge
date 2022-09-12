@@ -139,8 +139,6 @@ def play_game(pull_puzzle, pull_ans):
     global guesses
     guesses = 0
     s_time = time.time()
-    # start time in seconds
-    print(f"Time started = {s_time}")
 
     while "0" in _puzzle:
         _puzzle = []
@@ -249,8 +247,6 @@ def end_game(guesses, s_time):
     global t_time
     f_time = time.time()
     t_time = int(f_time) - int(s_time)
-    print(f" starting time - {s_time}")
-    print(f"Finish time - {f_time}")
 
     # Update leaderboard with entry
     lboard = open("leaderboard.txt","a")
