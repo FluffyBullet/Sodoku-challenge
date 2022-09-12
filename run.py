@@ -244,6 +244,7 @@ def end_game(guesses, s_time):
     """
     # Variable for color of text
     _p_g = Fore.GREEN
+    _p_y = Fore.LIGHTYELLOW_EX
     _p_reset = Style.RESET_ALL
 
     # Calculates total time in seconds spent
@@ -259,11 +260,12 @@ def end_game(guesses, s_time):
     # Displays users performance
     print(_p_g + "Congratulations for completing the game!" + _p_reset)
     print(f"Total guesses to completion = {guesses}")
-    print(f"Total time to complete = {t_time} Seconds")
-    print("Do you wish to view the leaderboards?")
+    print(f"Total time to complete = {t_time} Seconds\n")
+    print(_p_y + "Do you wish to view the leaderboards? (yes/no)" + _p_reset)
     boards = input()
     if boards.lower() == "yes":
         leader_boards()
+    print(f"Thank you for playing my game {user}!")
 
 
 def intro():
@@ -279,7 +281,7 @@ def intro():
         user = input("Enter your name\n").capitalize()
     else:
         pass
-    
+
     print(f"\nThank you {user.capitalize()},\n"
           f"Type 'rules' if you wish for me to explain how to play\n"
           f"Or type 'play' if you wish to start playing")
@@ -295,8 +297,7 @@ def leader_boards():
     """
     Generates leaderboard to display to the user
     """
-    lb.field_names = ["name", "difficulty", "Guesses", "Time(seconds)"]
-    print(user.capitalize())
+    lb.field_names = ["name", "difficulty", "guesses", "time(seconds)"]
 
     with open('leaderboard.txt') as rec:
         leaders = rec.readlines()
@@ -306,7 +307,10 @@ def leader_boards():
     for line in range(len(leaders)):
         lb.add_rows([leaders[line]])
 
-    print(lb)
+    print(f"{difficulty} difficulty Leaderboard:")
+    df = ["name", "guesses", "time(seconds)"]
+    lb.sortby = "guesses"
+    print(lb.get_string(start=0, end=5, fields=df))
 
 
 def run():
@@ -318,5 +322,3 @@ def run():
 
 
 run()
-
-# leaderboard to show time and guesses, selectable boards ?
