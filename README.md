@@ -157,6 +157,7 @@ Formatting of Code:<br>
     - PyPi<br>
         - Information on PrettyTable and how to format correctly - https://pypi.org/project/prettytable/<br>
         - Display of formatting for Colorama - https://pypi.org/project/colorama/<br>
+        - Getting time and seconds for timer - https://pypi.org/project/DateTime/<br>
 Help on creating code:<br>
     - Code Institute learning platform over Python Module with continuous returning.
 

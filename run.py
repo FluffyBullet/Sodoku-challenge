@@ -14,7 +14,16 @@ def start_selection(mode):
         if mode.lower() == "play":
             return True
         elif mode.lower() == "rules":
-            print("rules to be displayed here")
+            print("\nSudoku is a 9x9 Grid of cells broken into 3 grids")
+            print("first is the row, second the column and third is a cube.")
+            print("Each section is to contain numbers between 1 & 9,")
+            print("but cannot contain duplicate values")
+            print("To play the game, first enter the grid ref, i.e A1 or D4")
+            print("Then your answer, i.e 6 or 2")
+            print("On hitting return/enter, the grid will update")
+            print("and continue until complete\n")
+            print("to proceed, type 'play'\n")
+
             return False
         elif mode.lower() not in ["play", "rules"]:
             raise KeyError
@@ -34,10 +43,10 @@ def get_difficulty():
           "3 for Hard \n")
     while True:
         # User entry for difficulty
-        possible_answers = ["1", "2", "3","99"]
+        possible_ans = ["1", "2", "3", "99"]
         setting = input()
-        
-        if validate_entry(possible_answers, setting) is True:
+
+        if validate_entry(possible_ans, setting) is True:
             difficulty = ""
             if setting == "1":
                 difficulty = "Easy"
@@ -62,8 +71,8 @@ def create_puzzle():
 
 # Generating string used for open function.
     pull_puzzle = "sudoku_" + difficulty + "_display"
-    pull_answer = "sudoku_" + difficulty + "_answer"
-    play_game(pull_puzzle, pull_answer)
+    pull_ans = "sudoku_" + difficulty + "_answer"
+    play_game(pull_puzzle, pull_ans)
 
 
 def puzzle_list(puzzle):
@@ -77,7 +86,7 @@ def puzzle_list(puzzle):
     return _puzzle
 
 
-def play_game(pull_puzzle, pull_answer):
+def play_game(pull_puzzle, pull_ans):
     """
     Function to hold the body of Sudoku puzzle
     """
@@ -91,14 +100,14 @@ def play_game(pull_puzzle, pull_answer):
 # Response to user to show still working
     print("Your puzzle is as follows:")
 # Pulling data from text files
-    with open(pull_answer + ".txt") as a:
-        answer = a.readlines()
+    with open(pull_ans + ".txt") as a:
+        ans = a.readlines()
     with open(pull_puzzle + ".txt") as f:
         puzzle = f.readlines()
 
 # Converting display & puzzle to number array
-    for i in range(len(answer)):
-        answer[i] = answer[i].strip('\n').split(',')
+    for i in range(len(ans)):
+        ans[i] = ans[i].strip('\n').split(',')
     for i in range(len(puzzle)):
         puzzle[i] = puzzle[i].strip('\n').split(',')
 
@@ -116,7 +125,7 @@ def play_game(pull_puzzle, pull_answer):
 # variable for while condition - if game is complete
     _puzzle = puzzle_list(puzzle)
 # Creating variables for entry validation.
-    possible_answers = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+    possible_ans = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
     grid_locations = []
     # search for all grid reference options (saves typing)
     for x in range(97, 106):
@@ -139,14 +148,14 @@ def play_game(pull_puzzle, pull_answer):
         print(t)
 # Requesting user to enter field and guess
         grid_entry = input(_p_y + "Your grid ref: \n" + _p_reset)
-        answer_entry = input(_p_y + "your guess: \n" + _p_reset)
+        ans_entry = input(_p_y + "your guess: \n" + _p_reset)
 
-        print(f"Your entry is {answer_entry} in {grid_entry}")
+        print(f"Your entry is {ans_entry} in {grid_entry}")
         print("Checking if your answer is correct....")
 # Check if entry matches answer
-        if validate_entry(possible_answers, answer_entry) is True:
+        if validate_entry(possible_ans, ans_entry) is True:
             if validate_entry(grid_locations, grid_entry.lower()) is True:
-                if test_entry(answer, grid_entry, answer_entry, puzzle) is True:
+                if test_entry(ans, grid_entry, ans_entry, puzzle) is True:
                     print(_p_g + "Congrats, you've guessed Correct" + _p_reset)
                     print("Please enter your next entry:")
                     guesses = guesses + 1
@@ -176,7 +185,7 @@ def validate_entry(official, entry):
         print(f"Invalid entry of {entry}, please try again.")
 
 
-def test_entry(answer, grid_entry, answer_entry, puzzle,):
+def test_entry(ans, grid_entry, ans_entry, puzzle,):
     """
     checks if guess v answer is correct.
     """
@@ -213,11 +222,11 @@ def test_entry(answer, grid_entry, answer_entry, puzzle,):
 # Checks if entry field has already been entered
         print(Fore.RED + "This field has already been entered" + _p_reset)
         return False
-    elif int(answer[int(grid_y)-1][int(grid_x)]) == int(answer_entry):
+    elif int(ans[int(grid_y)-1][int(grid_x)]) == int(ans_entry):
 # formats answer to display in color
-        answer_entry = Fore.GREEN + answer_entry + Style.RESET_ALL
+        ans_entry = Fore.GREEN + ans_entry + Style.RESET_ALL
 # Updates puzzle display with new guess
-        puzzle[int(grid_y)-1][int(grid_x)+1] = answer_entry
+        puzzle[int(grid_y)-1][int(grid_x)+1] = ans_entry
 # Re-populates PrettyTable
         t.clear_rows()
         for line in range(len(puzzle)):
@@ -234,13 +243,13 @@ def end_game(guesses, s_time):
     """
 # Calculates total time in seconds spent
     f_time = time.time()
-    t_time =  int(f_time) - int(s_time)
+    t_time = int(f_time) - int(s_time)
     print(f" starting time - {s_time}")
     print(f"Finish time - {f_time}")
 # Displays users performance
     print("Congratulations for completing the game!")
     print(f"Total guesses to completion = {guesses}")
-    print(f"Total time to complete = {t_time}")
+    print(f"Total time to complete = {t_time} Seconds")
 
 
 def intro():
