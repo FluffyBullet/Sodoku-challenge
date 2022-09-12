@@ -10,7 +10,7 @@
 
 
 Link to live website: [Here](https://sudoku-game-play.herokuapp.com/)
-Link to respository Site: [Here](https://github.com/FluffyBullet/Sodoku-challenge)
+Link to repository Site: [Here](https://github.com/FluffyBullet/Sodoku-challenge)
 
 ## Introduction
 For practice of and display my understanding of coding language *Python*, this application is created as a submission of my Third project to Code Institute's "Full Stack Developers" course. 
@@ -19,13 +19,13 @@ Based off the puzzle game sudoku, this app allows the user(s) to test their know
 ### Approach
 At first, my view was to create a grid of 3 x 3 blocks, 3 stacked horizontally, 3 stacked vertically. For generating the field, python was to list values 1 - 9, then randomize. Branching vertically too, completing the sudoku puzzle, then hiding blocks from the user.
 
-A more simpler method and to use another function, I have pre-determined the sudoku puzzles from website mentioned in [acknowledgements](#acknowledgements). Python will pull the intial code from the display text document.
+A more simpler method and to use another function, I have pre-determined the sudoku puzzles from website mentioned in [acknowledgements](#acknowledgements). Python will pull the initial code from the display text document.
 
 
 On entry submission, a grid reference will instruct Python which values to compare and update.
 
 
-"If" statement can determin whether the game has been completed or not, placing into a continuous loop.
+"If" statement can determine whether the game has been completed or not, placing into a continuous loop.
 
 ### Use of the website
 As Python is based on Command Line Interface (CLI), not graphical interface the website is to display a small docking station with a text prompt for the user focus on the application is based off it's functions rather than display.
@@ -51,13 +51,13 @@ Methods used within the python code include:
 **Reading of external documents**
 - sudoku puzzle will depend on the user(s) selection, which will direct the program to it's correct path.
     - code with variables inserted
-- *potential* creating of leaderboard for username and time to completion, top 5 for each difficulty.
+- *potential* creating of leader board for username and time to completion, top 5 for each difficulty.
 
 **Updating list of values**
 - users correct entries will be added onto the sudoku table using the .update value.
 
 **creating and storing of dictionary**
-- *potential* Leaderboard will be stored as a dictionary, using the user(s) name as key and time to completion as value.
+- *potential* Leader board will be stored as a dictionary, using the user(s) name as key and time to completion as value.
     - Value to be wrote on text document
 **Alternative for use with PrettyTable, no longer aimed at Dictionary**
 
@@ -78,10 +78,10 @@ Edited to be included in the flow chart, the intro section now includes option t
 As the display is presented, no guide was presented for the user.
 
 
-To correct this, axis lables were added within the code, but presented difficulty with alignment and blending with the rest of the presentation.
+To correct this, axis labels were added within the code, but presented difficulty with alignment and blending with the rest of the presentation.
 
 
-Coloring of text allowes me to make the labels to stand out from the display, giving a clear understanding to the user.
+Coloring of text allows me to make the labels to stand out from the display, giving a clear understanding to the user.
 
 
 **05/09/22**
@@ -90,7 +90,7 @@ Coloring of text allowes me to make the labels to stand out from the display, gi
 Using references to check and update entries and correct results was difficult as initial recall from the text file enters as strong with /n at the end of each array.
 
 
-To correct this, the string needs "\n" removing and splitting after each commar. However, you cannot concatenate a list and a string together causing another issue for display of the puzzle.
+To correct this, the string needs "\n" removing and splitting after each comma. However, you cannot concatenate a list and a string together causing another issue for display of the puzzle.
 
 
 Combatting this is to use the conversion method in the testing function rather than display. On completion this will be converted back to string then returned for display.
@@ -116,7 +116,7 @@ Comment lines were pushed to the start of code block to allow condensing of code
 I used this method as updating "_puzzle" variable was not working correctly but required to reference between 3 functions. On completion, this was pushed back to it's correct place.
 
 
-Whilst global variables should be avoided to be used, the introduction of global variables at the end of my project is to allow exporting of data to a leaderboard.
+Whilst global variables should be avoided to be used, the introduction of global variables at the end of my project is to allow exporting of data to a leader board.
 
 ### Library's used
 
@@ -126,7 +126,7 @@ This library allows me to use the list of rows into a presentable format whilst 
 
 Unfortunately this is not applicable for rows
 
-Whilst this was introduced for display of the puzzle, I found this also benefited the use of presenting a leaderboard. Rather than creating an API and connecting to google datasheets, this could be presented in PrettyTable, also using Sort and only priting specific rows.
+Whilst this was introduced for display of the puzzle, I found this also benefited the use of presenting a leader board. Rather than creating an API and connecting to google datasheets, this could be presented in PrettyTable, also using Sort and only printing specific rows.
 ```
 
 **Colorama**
@@ -140,8 +140,8 @@ With each elements being in different colors:
 
 **datetime**
 ```
-Breaking down the system date to miliseconds, allowing the system to record time started and time completing the quiz.
-This is being used for the final result, eventually to create a leaderboard based off time and guesses to completion.
+Breaking down the system date to milliseconds, allowing the system to record time started and time completing the quiz.
+This is being used for the final result, eventually to create a leader board based off time and guesses to completion.
 ```
 
 ### Application behaviour
@@ -232,7 +232,7 @@ To create the validation checks on the above table, I used the [live website](ht
 
 <img src = assets/images/readme_images/p3_complete_validate.png>
 
-**Leaderboard to be displayed**
+**Leader board to be displayed**
 
 `Display request if they wish to view the leaderboard - if yes, table to be displayed`
 
@@ -240,7 +240,7 @@ To create the validation checks on the above table, I used the [live website](ht
 <img src = assets/images/readme_images/p3_leaderboard_test.png>
 
 
-`Note - the leaderboard is only to grab the top 5 entries of, which is sorted by "Guesses" column`
+`Note - the leader board is only to grab the top 5 entries of, which is sorted by "Guesses" column`
 
 
 **End of game**
@@ -285,6 +285,11 @@ Formatting of Code:
     - Getting time and seconds for timer - https://pypi.org/project/DateTime/
 Help on creating code:
 - Code Institute learning platform over Python Module with continuous returning.
+Valdiator:
+- Python code
+    - PEP8 - www.pep8online.com/checkresult
+- Microsoft Word
+    - Readme file text - ensuring spelling is correct.
 
 Influencers - 
 - Brother, Jason Reynolds
@@ -293,9 +298,9 @@ Continuous conversation with mentions on flow of code and expected behaviour.
 ```
 - Mentor - Marcel Mulders
 ```
-Guidance on functions being created, internal variables and possitive support throughout the course.
+Guidance on functions being created, internal variables and positive support throughout the course.
 ```
-- ClassMate - Jamie King
+- Class Mate - Jamie King
 ```
 Comparison of projects, understanding and general conversation. With this, I was able to reflect on my project and adapt some lines to other examples available and change for requirements.
 ```
