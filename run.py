@@ -153,7 +153,6 @@ def play_game(pull_puzzle, pull_ans):
     # Requesting user to enter field and guess
         grid_entry = input(_p_y + "Your grid ref: \n" + _p_reset)
         ans_entry = input(_p_y + "your guess: \n" + _p_reset)
-
         print(f"Your entry is {ans_entry} in {grid_entry}")
         print("Checking if your answer is correct....")
     # Check if entry matches answer

@@ -170,15 +170,100 @@ enter data as a, b or c</td>
 <td>Pass ?</td>
 </tr>
 </table>
-Invalid entries<br>
-    - name entries (no value, numbers)<br>
-    - difficulty selector<br>
-    - grid references <br>
-reading of data<br>
-timestamps and end result<br>
-logging of leaderboard
-<br>
-<strong><u>Validators</u></strong>
+
+### My Test Run
+
+To create the validation checks on the above table, I used the [live website](https://sudoku-game-play.herokuapp.com/) with possible entries at each point of entry. Whilst I've logged my findings above, I found it useful to log the results and entries below:
+
+**Name validation**
+
+
+`Entries of non-name values, i.e digits or just entering through`
+
+
+<img src = assets/images/readme_images/p3_name_validated.png>
+
+
+
+**Rules and Play Validation**
+
+`Entering anything other than what is specified - rules or play`
+
+
+<img src = assets/images/readme_images/p3_rules_validated.png>
+
+
+**Rules then Play**
+
+`Proceeding through to rules and play - with random capital's to check if characters are correct`
+
+
+<img src = assets/images/readme_images/p3_rules_and_casing_validate.png>
+
+
+**Difficulty validation**
+
+`Enter either text or double digits, anything other than specified`
+
+
+<img src = assets/images/readme_images/p3_difficulty_validate.png>
+
+
+**Grid Entry**
+
+`Type in an incorrect grid reference, i.e AA or 1234 or A10`
+
+
+<img src = assets/images/readme_images/p3_grid_entry_validate.png>
+
+
+**Guess entry**
+
+`Incorrect values to be entered into guess field, i.e 11, or EE`
+
+
+<img src = assets/images/readme_images/p3_grid_guess_validate.png>
+
+**Incorrect Entry**
+
+
+`Type in wrong value to display the guess is incorrect`
+
+
+<img src = assets/images/readme_images/p3_incorrect_guess_validate.png>
+
+**Correct Entry**
+
+`Type in the correct value, for table to update`
+
+<img src = assets/images/readme_images/p3_correct_entry.png>
+
+
+**Complete Game loop**
+
+`On completion of the table, to proceed to next stage`
+
+
+<img src = assets/images/readme_images/p3_complete_validate.png>
+
+**Leaderboard to be displayed**
+
+`Display request if they wish to view the leaderboard - if yes, table to be displayed`
+
+
+<img src = assets/images/readme_images/p3_leaderboard_test.png>
+
+
+`Note - the leaderboard is only to grab the top 5 entries of, which is sorted by "Guesses" column`
+
+
+**End of game**
+
+`On option to display leaderboard, if select no the final message to be displayed`
+
+
+<img src = assets/images/readme_images/p3_end_game_alternative.png>
+
 
 ### <u>Bugs Encountered</u>
 1. When creating the selection of game or rules, the try statement iterates through twice, causing duplication of text displayed. Unable to fix at present, but will store in logs for later date.
