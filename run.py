@@ -1,5 +1,6 @@
 from colorama import Fore, Style
 from prettytable import PrettyTable
+import time
 
 t = PrettyTable()
 
@@ -53,17 +54,15 @@ def create_puzzle():
     """
     Reads the difficulty setting selected, then creates the grid.
     """
-
+# Grabbing settings and displaying selection
     difficulty = get_difficulty().lower()
     print("Creating template....")
     print("Scribbling down the answers...")
     print(f"{difficulty} has been selected\n")
 
-
 # Generating string used for open function.
     pull_puzzle = "sudoku_" + difficulty + "_display"
     pull_answer = "sudoku_" + difficulty + "_answer"
-
     play_game(pull_puzzle, pull_answer)
 
 
@@ -86,9 +85,9 @@ def play_game(pull_puzzle, pull_answer):
     with open(pull_puzzle + ".txt") as f:
         puzzle = f.readlines()
 
+    # Converting display & puzzle to number array
     for i in range(len(answer)):
         answer[i] = answer[i].strip('\n').split(',')
-    # Converting display puzzle to number array
     for i in range(len(puzzle)):
         puzzle[i] = puzzle[i].strip('\n').split(',')
 
@@ -115,6 +114,12 @@ def play_game(pull_puzzle, pull_answer):
         for y in range(1, 10):
             locations = chr(x) + str(y)
             grid_locations.append(locations)
+    
+    # Variables for score/performance
+    guesses = 0
+    s_time = time.time()
+    # start time in seconds
+    print(f"Time started = {s_time}")
 
     while "0" in _puzzle:
         # Displays puzzle to the user
@@ -132,11 +137,26 @@ def play_game(pull_puzzle, pull_answer):
                 if test_entry(answer, grid_entry, answer_entry, puzzle) is True:
                     print(_p_g + "Congrats, you've guessed Correct" + _p_reset)
                     print("Please enter your next entry:")
+                    guesses = guesses + 1
+                    print(f"Total guesses = {guesses}")
                 else:
                     print(_p_r + "Sorry, that is incorrect." + _p_reset)
                     print(_p_r + "Please try again" + _p_reset)
+                    guesses = guesses + 1
+                    print(f"Total guesses = {guesses}")
 
-    end_game()
+    end_game(guesses, s_time)
+
+
+def list_display(display, location, answer):
+    """
+    Updates _puzzle for while statement in play_game()
+    """
+    _puzzle = []
+    for item in display:
+        for _item in item:
+            _puzzle.append(_item)
+    return _puzzle
 
 
 def validate_entry(official, entry):
@@ -190,11 +210,17 @@ def test_entry(answer, grid_entry, answer_entry, puzzle,):
         print(Fore.RED + "This field has already been entered" + _p_reset)
         return False
     elif int(answer[int(grid_y)-1][int(grid_x)]) == int(answer_entry):
+        # formats answer to display in color
         answer_entry = Fore.GREEN + answer_entry + Style.RESET_ALL
+        #Updates puzzle display with new guess
         puzzle[int(grid_y)-1][int(grid_x)+1] = answer_entry
+        location = puzzle[int(grid_y)-1][int(grid_x)+1]
+        list_display(puzzle, location, answer_entry)
+        # re-populates PrettyTable
         t.clear_rows()
         for line in range(len(puzzle)):
             t.add_rows([puzzle[line]]) 
+        
 
     # if statement does not update _puzzle, does not update above
         return True
@@ -202,8 +228,12 @@ def test_entry(answer, grid_entry, answer_entry, puzzle,):
         return False
 
 
-def end_game():
+def end_game(guesses, s_time):
+    f_time = time.time()
+    t_time = int(s_time) - int(f_time)
     print("Congratulations for completing the game!")
+    print(f"Total guesses to completion = {guesses}")
+    print(f"Total time to complete = {t_time}")
 
 
 def intro():
