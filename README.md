@@ -89,6 +89,12 @@ With each elements being in different colors:
 - Blue to provide feedback statements
 ```
 
+**datetime**
+```
+Breaking down the system date to miliseconds, allowing the system to record time started and time completing the quiz.
+This is being used for the final result, eventually to create a leaderboard based off time and guesses to completion.
+```
+
 ### Application behaviour
 
 To map the expected use of the application/game, I have created the following charts using [Lucid Charts](#lucid-charts):

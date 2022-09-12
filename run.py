@@ -66,6 +66,17 @@ def create_puzzle():
     play_game(pull_puzzle, pull_answer)
 
 
+def puzzle_list(puzzle):
+    """
+    Generates array of puzzle values
+    """
+    _puzzle = []
+    for item in puzzle:
+        for _item in item:
+            _puzzle.append(_item)
+    return _puzzle
+
+
 def play_game(pull_puzzle, pull_answer):
     """
     Function to hold the body of Sudoku puzzle
@@ -104,9 +115,12 @@ def play_game(pull_puzzle, pull_answer):
 
 # variable for while condition - if game is complete
     _puzzle = []
-    for item in puzzle:
-        for _item in item:
-            _puzzle.append(_item)
+    _puzzle = puzzle_list(puzzle)
+    print(_puzzle)
+    #_puzzle = []
+    #for item in puzzle:
+    #    for _item in item:
+    #        _puzzle.append(_item)
 
 # Creating variables for entry validation.
     possible_answers = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
@@ -124,16 +138,20 @@ def play_game(pull_puzzle, pull_answer):
     print(f"Time started = {s_time}")
 
     while "0" in _puzzle:
+        _puzzle = []
+        for item in puzzle:
+            for _item in item:
+                _puzzle.append(_item)
 # Displays puzzle to the user
         print(t)
+        print(_puzzle)
 # Requesting user to enter field and guess
         grid_entry = input(_p_y + "Your grid ref: \n" + _p_reset)
         answer_entry = input(_p_y + "your guess: \n" + _p_reset)
 
         print(f"Your entry is {answer_entry} in {grid_entry}")
         print("Checking if your answer is correct....")
-
-# Check if entry matches answer         
+# Check if entry matches answer
         if validate_entry(possible_answers, answer_entry) is True:
             if validate_entry(grid_locations, grid_entry.lower()) is True:
                 if test_entry(answer, grid_entry, answer_entry, puzzle) is True:
@@ -148,6 +166,7 @@ def play_game(pull_puzzle, pull_answer):
                     print(f"Total guesses = {guesses}")
 
     end_game(guesses, s_time)
+
 
 def validate_entry(official, entry):
     """
@@ -206,13 +225,11 @@ def test_entry(answer, grid_entry, answer_entry, puzzle,):
         answer_entry = Fore.GREEN + answer_entry + Style.RESET_ALL
 # Updates puzzle display with new guess
         puzzle[int(grid_y)-1][int(grid_x)+1] = answer_entry
-        location = [int(grid_y)-1] + [int(grid_x)+1]
-        print(location)
+        puzzle_list(puzzle)
 # Re-populates PrettyTable
         t.clear_rows()
         for line in range(len(puzzle)):
             t.add_rows([puzzle[line]])
-
 # If statement does not update _puzzle, does not update above
         return True
     else:
@@ -226,6 +243,8 @@ def end_game(guesses, s_time):
 # Calculates total time in seconds spent
     f_time = time.time()
     t_time = int(s_time) - int(f_time)
+    print(f" starting time - {s_time}")
+    print(f"Finish time - {f_time}")
 # Displays users performance
     print("Congratulations for completing the game!")
     print(f"Total guesses to completion = {guesses}")
