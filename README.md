@@ -109,6 +109,8 @@ Comment lines were pushed to the start of code block to allow condensing of code
 I used this method as updating "_puzzle" variable was not working correctly but required to reference between 3 functions. On completion, this was pushed back to it's correct place.
 
 
+Whilst global variables should be avoided to be used, the introduction of global variables at the end of my project is to allow exporting of data to a leaderboard.
+
 ### Library's used
 
 **PrettyTable**
