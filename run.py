@@ -3,6 +3,7 @@ from prettytable import PrettyTable
 import time
 
 t = PrettyTable()
+lb = PrettyTable()
 
 
 def start_selection(mode):
@@ -64,6 +65,7 @@ def create_puzzle():
     Reads the difficulty setting selected, then creates the grid.
     """
     # Grabbing settings and displaying selection
+    global difficulty
     difficulty = get_difficulty().lower()
     print("Creating template....")
     print("Scribbling down the answers...")
@@ -134,6 +136,7 @@ def play_game(pull_puzzle, pull_ans):
             grid_locations.append(locations)
 
     # Variables for score/performance
+    global guesses
     guesses = 0
     s_time = time.time()
     # start time in seconds
@@ -166,7 +169,6 @@ def play_game(pull_puzzle, pull_ans):
                     print(_p_r + "Please try again" + _p_reset)
                     guesses = guesses + 1
                     print(f"Total guesses = {guesses}")
-
     end_game(guesses, s_time)
 
 
@@ -239,15 +241,30 @@ def end_game(guesses, s_time):
     """
     On completion summarize details of users performance.
     """
+    # Variable for color of text
+    _p_g = Fore.GREEN
+    _p_reset = Style.RESET_ALL
+
     # Calculates total time in seconds spent
+    global t_time
     f_time = time.time()
     t_time = int(f_time) - int(s_time)
     print(f" starting time - {s_time}")
     print(f"Finish time - {f_time}")
+
+    # Update leaderboard with entry
+    lboard = open("leaderboard.txt","a")
+    lboard.write(f'"{user}","{difficulty}","{guesses}","{t_time}"\n')
+    lboard.close()
+
     # Displays users performance
-    print("Congratulations for completing the game!")
+    print(_p_g + "Congratulations for completing the game!" + _p_reset)
     print(f"Total guesses to completion = {guesses}")
     print(f"Total time to complete = {t_time} Seconds")
+    print("Do you wish to view the leaderboards?")
+    boards = input()
+    if boards.lower() == "yes":
+        leader_boards()
 
 
 def intro():
@@ -255,6 +272,7 @@ def intro():
     Greets the user and starts the Sudoku application
     """
     print("\033[1;33m Welcome to my Sodoku Challenge application!\n\033[0;0m")
+    global user
     user = input("Enter your name\n")
     print(f"\nThank you {user.capitalize()},\n"
           f"Type 'rules' if you wish for me to explain how to play\n"
@@ -265,6 +283,17 @@ def intro():
         if start_selection(mode):
             print("\nStarting the game now...")
             break
+
+
+def leader_boards():
+    """
+    Generates leaderboard to display to the user
+    """
+    lb.fieldname = ["name", "difficulty", "Guesses","Time(seconds)"]
+    print(user.capitalize())
+    print(difficulty)
+    print(guesses)
+    print(t_time)
 
 
 def run():
