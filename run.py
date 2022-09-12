@@ -114,14 +114,7 @@ def play_game(pull_puzzle, pull_answer):
         t.add_rows([puzzle[line]])
 
 # variable for while condition - if game is complete
-    _puzzle = []
     _puzzle = puzzle_list(puzzle)
-    print(_puzzle)
-    #_puzzle = []
-    #for item in puzzle:
-    #    for _item in item:
-    #        _puzzle.append(_item)
-
 # Creating variables for entry validation.
     possible_answers = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
     grid_locations = []
@@ -144,7 +137,6 @@ def play_game(pull_puzzle, pull_answer):
                 _puzzle.append(_item)
 # Displays puzzle to the user
         print(t)
-        print(_puzzle)
 # Requesting user to enter field and guess
         grid_entry = input(_p_y + "Your grid ref: \n" + _p_reset)
         answer_entry = input(_p_y + "your guess: \n" + _p_reset)
@@ -159,6 +151,7 @@ def play_game(pull_puzzle, pull_answer):
                     print("Please enter your next entry:")
                     guesses = guesses + 1
                     print(f"Total guesses = {guesses}")
+                    _puzzle = puzzle_list(puzzle)
                 else:
                     print(_p_r + "Sorry, that is incorrect." + _p_reset)
                     print(_p_r + "Please try again" + _p_reset)
@@ -225,7 +218,6 @@ def test_entry(answer, grid_entry, answer_entry, puzzle,):
         answer_entry = Fore.GREEN + answer_entry + Style.RESET_ALL
 # Updates puzzle display with new guess
         puzzle[int(grid_y)-1][int(grid_x)+1] = answer_entry
-        puzzle_list(puzzle)
 # Re-populates PrettyTable
         t.clear_rows()
         for line in range(len(puzzle)):
@@ -242,7 +234,7 @@ def end_game(guesses, s_time):
     """
 # Calculates total time in seconds spent
     f_time = time.time()
-    t_time = int(s_time) - int(f_time)
+    t_time =  int(f_time) - int(s_time)
     print(f" starting time - {s_time}")
     print(f"Finish time - {f_time}")
 # Displays users performance
