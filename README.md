@@ -53,22 +53,57 @@ Methods used within the python code include:
 
 ### <u>Development progression</u>
 
-<strong>31/8/22</strong><br>
-    At first attempt, the intro section would request for the user to select the mode - the progressing into difficulty setting. Similar to all games and approaches, there needs to be an expectation that the user has not experienced the game/event before.<br>
-    Edited to be included in the flow chart, the intro section now includes option to explain the rules, or start the game.<br>
-<strong>01/09/22</strong><br>
-    As the display is presented, no guide was presented for the user.<br>
-    To correct this, axis lables were added within the code, but presented difficulty with alignment and blending with the rest of the presentation.<br>
-    Coloring of text allowes me to make the labels to stand out from the display, giving a clear understanding to the user.
-<strong>05/09/22</strong><br>
-    Using references to check and update entries and correct results was difficult as initial recall from the text file enters as strong with /n at the end of each array.<br>
-    To correct this, the string needs "\n" removing and splitting after each commar. However, you cannot concatenate a list and a string together causing another issue for display of the puzzle.<br>
-    Combatting this is to use the conversion method in the testing function rather than display. On completion this will be converted back to string then returned for display.<br>
-    In addition, "_" was originally entered to show guesses required but not recognised as an integer. This was displayed as "0" instead - to be updated in rules.<br>
-<strong>09/09/22</strong><br>
-    After displaying the puzzle or Sudoku mapping into PrettyTables, correct guesses were not being updated. Looking into this, I found the add rows was being added as a tuple rather than list. With the data being unable to be manipulated I needed to find a way to change the data.<br>
-    I found a function within the PrettyTables library, allowing me to remove previous rows. With this, I can then re-type the data to the rows showing an update.<br>
-    For demonstration purposes, Test setting has been entered with all but 1 field entered. Difficulty setting == 99. Answer at B1 is 1. 
+**31/8/22**
+
+
+At first attempt, the intro section would request for the user to select the mode - the progressing into difficulty setting. Similar to all games and approaches, there needs to be an expectation that the user has not experienced the game/event before.
+
+
+Edited to be included in the flow chart, the intro section now includes option to explain the rules, or start the game.
+
+
+**01/09/22**
+
+
+As the display is presented, no guide was presented for the user.
+
+
+To correct this, axis lables were added within the code, but presented difficulty with alignment and blending with the rest of the presentation.
+
+
+Coloring of text allowes me to make the labels to stand out from the display, giving a clear understanding to the user.
+
+
+**05/09/22**
+
+
+Using references to check and update entries and correct results was difficult as initial recall from the text file enters as strong with /n at the end of each array.
+
+
+To correct this, the string needs "\n" removing and splitting after each commar. However, you cannot concatenate a list and a string together causing another issue for display of the puzzle.
+
+
+Combatting this is to use the conversion method in the testing function rather than display. On completion this will be converted back to string then returned for display.
+
+
+In addition, "_" was originally entered to show guesses required but not recognised as an integer. This was displayed as "0" instead - to be updated in rules.
+
+
+**09/09/22**
+
+After displaying the puzzle or Sudoku mapping into PrettyTables, correct guesses were not being updated. Looking into this, I found the add rows was being added as a tuple rather than list. With the data being unable to be manipulated I needed to find a way to change the data.
+
+
+I found a function within the PrettyTables library, allowing me to remove previous rows. With this, I can then re-type the data to the rows showing an update.
+
+
+For demonstration purposes, Test setting has been entered with all but 1 field entered. Difficulty setting == 99. Answer at B1 is 1.
+
+
+**12/09/22**
+
+Comment lines were pushed to the start of code block to allow condensing of codes and easy view between functions and purposes.
+I used this method as updating "_puzzle" variable was not working correctly but required to reference between 3 functions. On completion, this was pushed back to it's correct place.
 
 
 ### Library's used
