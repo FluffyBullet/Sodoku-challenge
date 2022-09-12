@@ -121,35 +121,38 @@ Whilst global variables should be avoided to be used, the introduction of global
 ### Library's used
 
 **PrettyTable**
-```
+
+
 This library allows me to use the list of rows into a presentable format whilst also spacing columns into groups of 3's with alignments.
 
 Unfortunately this is not applicable for rows
 
 Whilst this was introduced for display of the puzzle, I found this also benefited the use of presenting a leader board. Rather than creating an API and connecting to google datasheets, this could be presented in PrettyTable, also using Sort and only printing specific rows.
-```
+
 
 **Colorama**
-```
+
+
 For the display to the user for headers, entries.
 With each elements being in different colors:
 - Yellow for headers/Questions
 - Green for Correct answers on the Python Display
 - Blue to provide feedback statements
-```
+
 
 **datetime**
-```
+
+
 Breaking down the system date to milliseconds, allowing the system to record time started and time completing the quiz.
 This is being used for the final result, eventually to create a leader board based off time and guesses to completion.
-```
+
 
 ### Application behaviour
 
 To map the expected use of the application/game, I have created the following charts using [Lucid Charts](#lucid-charts):
 <img src = assets\images\readme_images\sudoku_flowchart.png>
 
-### <u>Testing</u>
+### Testing
 
 | Logic | Event | Testing Method | Expected Behaviour | Pass? |
 |----|-----|--------|---------|----|
@@ -164,7 +167,7 @@ To create the validation checks on the above table, I used the [live website](ht
 **Name validation**
 
 
-`Entries of non-name values, i.e digits or just entering through`
+Entries of non-name values, i.e digits or just entering through
 
 
 <img src = assets/images/readme_images/p3_name_validated.png>
@@ -173,7 +176,8 @@ To create the validation checks on the above table, I used the [live website](ht
 
 **Rules and Play Validation**
 
-`Entering anything other than what is specified - rules or play`
+
+Entering anything other than what is specified - rules or play
 
 
 <img src = assets/images/readme_images/p3_rules_validated.png>
@@ -181,7 +185,8 @@ To create the validation checks on the above table, I used the [live website](ht
 
 **Rules then Play**
 
-`Proceeding through to rules and play - with random capital's to check if characters are correct`
+
+Proceeding through to rules and play - with random capital's to check if characters are correct
 
 
 <img src = assets/images/readme_images/p3_rules_and_casing_validate.png>
@@ -189,7 +194,8 @@ To create the validation checks on the above table, I used the [live website](ht
 
 **Difficulty validation**
 
-`Enter either text or double digits, anything other than specified`
+
+Enter either text or double digits, anything other than specified
 
 
 <img src = assets/images/readme_images/p3_difficulty_validate.png>
@@ -197,7 +203,8 @@ To create the validation checks on the above table, I used the [live website](ht
 
 **Grid Entry**
 
-`Type in an incorrect grid reference, i.e AA or 1234 or A10`
+
+Type in an incorrect grid reference, i.e AA or 1234 or A10
 
 
 <img src = assets/images/readme_images/p3_grid_entry_validate.png>
@@ -205,47 +212,53 @@ To create the validation checks on the above table, I used the [live website](ht
 
 **Guess entry**
 
-`Incorrect values to be entered into guess field, i.e 11, or EE`
+Incorrect values to be entered into guess field, i.e 11, or EE
 
 
 <img src = assets/images/readme_images/p3_grid_guess_validate.png>
 
+
 **Incorrect Entry**
 
 
-`Type in wrong value to display the guess is incorrect`
+Type in wrong value to display the guess is incorrect
 
 
 <img src = assets/images/readme_images/p3_incorrect_guess_validate.png>
 
 **Correct Entry**
 
-`Type in the correct value, for table to update`
+
+Type in the correct value, for table to update
+
 
 <img src = assets/images/readme_images/p3_correct_entry.png>
 
 
 **Complete Game loop**
 
-`On completion of the table, to proceed to next stage`
+
+On completion of the table, to proceed to next stage
 
 
 <img src = assets/images/readme_images/p3_complete_validate.png>
 
+
 **Leader board to be displayed**
 
-`Display request if they wish to view the leaderboard - if yes, table to be displayed`
+
+Display request if they wish to view the leaderboard - if yes, table to be displayed
 
 
 <img src = assets/images/readme_images/p3_leaderboard_test.png>
 
 
-`Note - the leader board is only to grab the top 5 entries of, which is sorted by "Guesses" column`
+Note - the leader board is only to grab the top 5 entries of, which is sorted by "Guesses" column
 
 
 **End of game**
 
-`On option to display leaderboard, if select no the final message to be displayed`
+On option to display leaderboard, if select no the final message to be displayed
 
 
 <img src = assets/images/readme_images/p3_end_game_alternative.png>
@@ -293,14 +306,10 @@ Valdiator:
 
 Influencers - 
 - Brother, Jason Reynolds
-```
-Continuous conversation with mentions on flow of code and expected behaviour.
-```
+    - Continuous conversation with mentions on flow of code and expected behaviour.
+
 - Mentor - Marcel Mulders
-```
-Guidance on functions being created, internal variables and positive support throughout the course.
-```
+    - Guidance on functions being created, internal variables and positive support throughout the course.
+
 - Class Mate - Jamie King
-```
-Comparison of projects, understanding and general conversation. With this, I was able to reflect on my project and adapt some lines to other examples available and change for requirements.
-```
+    - Comparison of projects, understanding and general conversation. With this, I was able to reflect on my project and adapt some lines to other examples available and change for requirements.
