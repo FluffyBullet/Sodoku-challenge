@@ -36,7 +36,7 @@ This website/project is raised for users who wish to test their problem solving 
 On first runthrough, I expect the users to use the 'rules' display to understand how to read the game and how to read the grid, to then follow with the 'play' command.
 
 
-As the user navigates through the game, they are met with a response of color responses to display correct or incorrect. Following usual patterns used within games and color settings - Red = Wrong, Green = Correct, Yellow = Attention.
+As the user navigates through the game, they are met with a response of color responses to display correct or incorrect. Following usual patterns used within games and color settings - Red = Incorrect, Green = Correct, Yellow = Attention.
 
 
 For repeat users, additional options of medium and hard setting as the difficulty increases. Then logging their scores on the respective leader boards to see if they can beat their previous result/friends.
@@ -289,6 +289,20 @@ On option to display leaderboard, if select no the final message to be displayed
 
 <img src = assets/images/readme_images/p3_end_game_alternative.png>
 
+
+## Deployment
+
+Storing of this project was made to Github repository with commends via bash. 
+
+- git add .
+- git commit -m " _description here_"
+- git push
+also using
+- git status
+
+
+As Python is a back-end language, github pages cannot display the project created. Instead, github is connected to Hekoru.
+To run the terminal, CodeInstitute have a template avaialble which creates a display and command box to play the project.
 
 ### Bugs Encountered
 1. When creating the selection of game or rules, the try statement iterates through twice, causing duplication of text displayed. Unable to fix at present, but will store in logs for later date.
