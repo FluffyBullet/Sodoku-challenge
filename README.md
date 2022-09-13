@@ -10,11 +10,37 @@
 
 
 Link to live website: [Here](https://sudoku-game-play.herokuapp.com/)
+
+
 Link to repository Site: [Here](https://github.com/FluffyBullet/Sodoku-challenge)
 
+
 ## Introduction
+
+
 For practice of and display my understanding of coding language *Python*, this application is created as a submission of my Third project to Code Institute's "Full Stack Developers" course. 
+
 Based off the puzzle game sudoku, this app allows the user(s) to test their knowledge and problem solving skills.
+
+
+
+## User Experience
+
+
+### Aim of the project
+
+
+This website/project is raised for users who wish to test their problem solving and mathmatical skills with a game of Sudoku. On loading the page, the user will be prompted on each stage of the project when requiring entries.
+
+
+On first runthrough, I expect the users to use the 'rules' display to understand how to read the game and how to read the grid, to then follow with the 'play' command.
+
+
+As the user navigates through the game, they are met with a response of color responses to display correct or incorrect. Following usual patterns used within games and color settings - Red = Wrong, Green = Correct, Yellow = Attention.
+
+
+For repeat users, additional options of medium and hard setting as the difficulty increases. Then logging their scores on the respective leader boards to see if they can beat their previous result/friends.
+
 
 ### Approach
 At first, my view was to create a grid of 3 x 3 blocks, 3 stacked horizontally, 3 stacked vertically. For generating the field, python was to list values 1 - 9, then randomize. Branching vertically too, completing the sudoku puzzle, then hiding blocks from the user.
