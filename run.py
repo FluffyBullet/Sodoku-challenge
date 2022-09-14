@@ -33,7 +33,7 @@ def start_selection(mode):
             raise KeyError
     except KeyError:
         print(f"your entry of '{mode}' is not recognised,"
-              "please type either 'play','rules' or 'exit'")
+              "please type either 'play' or 'rules'")
         return False
 
 
