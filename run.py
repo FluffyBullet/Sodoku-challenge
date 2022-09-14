@@ -254,7 +254,7 @@ def end_game(guesses, s_time):
     t_time = int(f_time) - int(s_time)
 
     # Update leaderboard with entry
-    lboard = open("leaderboard.txt", "a")
+    lboard = open(f"leaderboard_{difficulty}.txt", "a")
     lboard.write(f'"{user}","{difficulty}","{guesses}","{t_time}"\n')
     lboard.close()
 
@@ -300,7 +300,7 @@ def leader_boards():
     """
     lb.field_names = ["name", "difficulty", "guesses", "time(seconds)"]
 
-    with open('leaderboard.txt') as rec:
+    with open(f'leaderboard_{difficulty}.txt') as rec:
         leaders = rec.readlines()
 
     for i in range(len(leaders)):
