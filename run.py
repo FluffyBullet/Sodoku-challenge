@@ -164,13 +164,11 @@ def play_game(pull_puzzle, pull_ans):
                     print(_p_g + "Congrats, you've guessed Correct" + _p_reset)
                     print("Please enter your next entry:")
                     guesses = guesses + 1
-                    print(f"Total guesses = {guesses}")
                     _puzzle = puzzle_list(puzzle)
                 else:
                     print(_p_r + "Sorry, that is incorrect." + _p_reset)
                     print(_p_r + "Please try again" + _p_reset)
                     guesses = guesses + 1
-                    print(f"Total guesses = {guesses}")
     end_game(guesses, s_time)
 
 
