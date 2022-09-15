@@ -97,7 +97,7 @@ def play_game(pull_puzzle, pull_ans):
     """
 
     # Color formatting for text
-    _p_y = Fore.YELLOW
+    _p_y = Fore.LIGHTYELLOW_EX
     _p_g = Fore.GREEN
     _p_r = Fore.RED
     _p_reset = Style.RESET_ALL
