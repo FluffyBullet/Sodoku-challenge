@@ -319,6 +319,36 @@ This was corrected by wrapping the check answer function within a If statement b
 
 The code is displaying as an error with being too long for the window terminal, but as this is only code for background calculations, this is not edited. - 9/9/22
 
+## Deployment  
+
+
+My code and application is originally posted on Github for a respository, where visitors can view the code used with my notes and readme file.
+
+
+https://github.com/FluffyBullet/Sudoku-challenge
+
+
+The github page is then linked to my [Heroku account](www.hekoru.com)
+
+
+https://sudoku-game-play.herokuapp.com/
+
+
+For the application to work correctly, settings needed to be edited to include the following buildpacks:
+- Python
+- Nodejs
+
+
+As additional libraries were used for the formatting of tables and coloring of text, Hekoru needed confirmation of libraries used.
+
+
+For this, "requirements.txt" document needs to include the library, "==" operators and library version without any spaces.
+
+In my example, my entries are : 
+- colorama==0.4.4
+- prettytable==3.4.1
+
+
 ### Acknowledgements
 
 sudoku puzzles:
